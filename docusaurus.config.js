@@ -8,13 +8,15 @@ const katex = require('rehype-katex');
 const config = {
   title: 'Ingonyama Developer Documentation',
   tagline: 'Ingonyama is a next-generation semiconductor company, focusing on Zero-Knowledge Proof hardware acceleration. We build accelerators for advanced cryptography, unlocking real-time applications.',
-  url: 'todo', //todo
+  url: 'https://www.docs.ingonyama.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.png',
-  organizationName: 'Ingonyama',
-  projectName: 'ingonyama-developer-docs',
+  organizationName: 'ingonyama-zk',
+  projectName: 'developer-docs',
+  trailingSlash: false,
+  deploymentBranch: "main",
   presets: [
     [
       'classic',
