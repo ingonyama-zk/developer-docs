@@ -4,29 +4,31 @@ displayed_sidebar: GettingStartedSidebar
 ---
 # Introduction
 
-Ingonyama is a next-generation semiconductor company, focusing on Zero-Knowledge Proof hardware acceleration. We build accelerators for advanced cryptography, unlocking real-time applications. Our focus is on democratizing access to compute intesive cryptography and making it acceible for developers to build ontop of.
+Ingonyama is a next-generation semiconductor company, focusing on Zero-Knowledge Proof hardware acceleration. We build accelerators for advanced cryptography, unlocking real-time applications. Our focus is on democratizing access to compute intensive cryptography and making it accessible for developers to build on top of.
+
+Currently our flagship products are:
 
 - **[ICICLE]**:
-A GPU Library for Zero-Knowledge Acceleration. ICICLE allows you to acclerate your ZK protocols in a matter of hours.
+ICICLE is a fully featured GPU accelerated cryptography library for building ZK provers. ICICLE allows you to accelerate your ZK existing protocols in a matter of hours or implement your protocol from scratch on GPU.
 
 - **[Blaze]**: 
 Blaze is a Rust library for ZK acceleration on Xilinx FPGAs. It make it easier then ever for developres to interact with FPGAs and for FPGA designers to give developers access to their hardware.
 
 ---
-## Our current take on hardware accleration
 
-At Ingonyama we belive that GPUs are emerging as an essential infrastructure component for enabling ZK acceleartion. This is due to their mass avalbilty, industry proven scaliblity, competitve preformace to power ratio and the ease at which developers can intergarte GPUs into their software stack. For a complete review of this topic we suggest you read [this article](https://medium.com/@omershlomovits/revisiting-paradigm-hardware-acceleration-for-zero-knowledge-proofs-16f717a49555) by our CEO.
+## Our current take on hardware acceleration
+
+At Ingonyama we belive that GPUs are emerging as an essential infrastructure component for enabling ZK acceleartion. This is due to their mass avalbilty, industry proven scalability, competitive preformace to power ratio and the ease at which developers can intergarte GPUs into their software stack. For a complete review of this topic we suggest you read [this article](https://www.ingonyama.com/blog/revisiting-paradigm-hardware-acceleration-for-zero-knowledge-proofs) by our CEO.
 
 We belive GPUs are as important for ZK as to AI.
 
-However despite our current focus on GPUs we are still hard at work developing a ZPU (ZK Processing Unit), with the goal of offering a programable hardware platform for ZK.
+However despite our current focus on GPUs we are still hard at work developing a ZPU (ZK Processing Unit), with the goal of offering a programable hardware platform for ZK. To read more about ZPUs we suggest you read this [article](https://medium.com/@ingonyama/zpu-the-zero-knowledge-processing-unit-f886a48e00e0).
 
 ## ICICLE
 
-ICICLE is a CUDA library implementing cryptographic primitives, its designed to be used as a crypro library in any ZK protocol. What this means is that if you are looking to accelerate your exsisting prover or are writing a prover from scratch its possible to simply use ICICLE and enjoy GPU acclerated primitives such as EC operations, MSM, NTT and more without having to write a single line of CUDA code!
+ICICLE is is a fully featured GPU accelerated cryptography library, the cryptographic primitives such as EC operations, MSM, NTT and more implemented in CUDA.
 
-ICICLE comes with Rust and Golang bindings offically supported by Ingonyama. Using ICICLE is as simple as installing a Golang or Rust package in your project.
-Using ICICLE you wont only enjoy faster prover runtimes but compute scalability as well, now that your proving pipeline supports GPU its possible to use ICICLE's multi GPU support to scale your prover across any number of GPUs.
+ICICLE is designed to be easy to use, developers don't have to touch a single line of CUDA code. Our Rust and Golang ICICLE bindings allow your team to transition from CPU to GPU with minimal re-engineering. ICICLE you wont only enjoy faster prover runtime on GPU but scalability as well, now that your proving pipeline supports GPU its possible to use ICICLE's multi GPU support to scale your prover across any number of GPUs.
 
 Learn more about ICICLE and GPUs [here](./icicle/overview.md).
 

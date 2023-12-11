@@ -21,7 +21,12 @@ module.exports = {
         },
         {
           type: "doc",
-          label: "Developer Bindings",
+          label: "Golang bindings",
+          id: "icicle/bindings",
+        },
+        {
+          type: "doc",
+          label: "Rust bindings",
           id: "icicle/bindings",
         },
         {
@@ -32,30 +37,9 @@ module.exports = {
       ]
     },
     {
-      type: "category",
+      type: "doc",
       label: "Blaze",
-      link: {
-        type: `doc`,
-        id: 'blaze/overview',
-      },
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          label: "Getting started",
-          id: "blaze/introduction"
-        },
-        {
-          type: "doc",
-          label: "Developer Bindings",
-          id: "blaze/bindings",
-        },
-        {
-          type: "doc",
-          label: "A guide to FPGA development",
-          id: "blaze/gpu-development-guide",
-        },
-      ]
+      id: 'blaze/overview',
     },
     {
       type: "category",
