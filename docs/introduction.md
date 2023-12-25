@@ -30,7 +30,7 @@ ICICLE is is a fully featured GPU accelerated cryptography library, the cryptogr
 
 ICICLE is designed to be easy to use, developers don't have to touch a single line of CUDA code. Our Rust and Golang ICICLE bindings allow your team to transition from CPU to GPU with minimal re-engineering. ICICLE you wont only enjoy faster prover runtime on GPU but scalability as well, now that your proving pipeline supports GPU its possible to use ICICLE's multi GPU support to scale your prover across any number of GPUs.
 
-Learn more about ICICLE and GPUs [here](./icicle/overview.md).
+Learn more about ICICLE and GPUs [here][ICICLE-OVERVIEW].
 
 ## Blaze
 
@@ -38,7 +38,7 @@ Blaze is a Rust library for ZK acceleration on Xilinx FPGAs. Blaze can be used b
 
 Software engineers will enjoy Blazes abstractions allowing them to interact with FPGA drivers at a high level without having to implement low level read/write operations, we also allow developers to programmatically load binary's to an FPGA and much more. FPGA developers can benefit by building their accelerators based on our shell named [Wrapshell](https://github.com/Quarky93/warpshell). Wrapshell offers common features, such as the PCIe subsystem (DMA), AXI Firewalls, and infrastructure to reconfigure the user-partition at runtime as well as many more features which simplify and speed up the development of FPGA-based accelerators. Wrapshell with Blaze allow you to deliver easy to integrate custom PCIe-based FPGA accelerator.
 
-Learn more about Blaze and FPGAs [here](./icicle/overview.md).
+Learn more about Blaze and FPGAs [here][BLAZE-OVERVIEW].
 
 ## Get in Touch
 
@@ -46,6 +46,6 @@ If you have any questions, ideas, or are thinking of building something in this 
 
 Follow us on [Twitter](https://x.com/Ingo_zk) and [YouTube](https://www.youtube.com/@ingo_ZK), and sign up for our [mailing list](https://wkf.ms/3LKCbdj) to get our latest announcements.
 
-[ICICLE]: bonsai/bonsai-overview.md
-[BLAZE]: proof-system/proof-system.mdi 
+[ICICLE-OVERVIEW]: ./icicle/overview.md
+[BLAZE-OVERVIEW]: ./blaze/overview.md
 [Discord]: https://discord.gg/6vYrE7waPj

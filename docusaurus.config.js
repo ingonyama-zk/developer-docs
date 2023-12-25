@@ -91,11 +91,6 @@ const config = {
             to: '/',
           },
           {
-            position: 'left',
-            label: 'FAQ',
-            to: 'tech_faq',
-          },
-          {
             href: 'https://github.com/ingonyama-zk',
             position: 'right',
             label: 'GitHub',
