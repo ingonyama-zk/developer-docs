@@ -4,14 +4,11 @@ ICICLE is an cryptography library for ZK using GPUs. ICICLE implements blazing f
 
 ICICLE allows developers with minimal GPU experience to effortlessly accelerate there ZK application, from our experiments even the most naive implementation may yield 10X improvement in proving times. 
 
-
-![ICICLE API overview](../../static/img/iciclestructure.png)
-
-The diagram above displays the general architecture of ICICLE and the API layers that exists. At the lowest level we have CUDA kernels which implement all primitives such as MSM for example. Our C++ wrapper is compiled into a shared library this library can be used with our official Golang and Rust wrappers or you can implement a wrapper for it in any language of your desire. 
+ICICLE has been used by many leading ZK companies such as [Celer Network](https://github.com/celer-network), [Gnark](https://github.com/Consensys/gnark), [EZKL](https://blog.ezkl.xyz/post/acceleration/) and others to accelerate their ZK proving pipeline.
 
 ## How can you use ICICLE ?
 
-ICICLE can be used in the same way you would use any other cryptography library. However over the past couple months developing and integrating ICICLE into many systems we found acouple use case catagories.
+ICICLE can be used in the same way you would use any other cryptography library. However over the past couple months developing and integrating ICICLE into many systems we found a couple use case catagories.
 
 ### ICICLE for circuit developers
 

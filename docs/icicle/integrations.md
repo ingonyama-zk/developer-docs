@@ -2,15 +2,15 @@
 
 ICICLE has been used by companies like [Celer Network](https://github.com/celer-network), [Gnark](https://github.com/Consensys/gnark), [EZKL](https://blog.ezkl.xyz/post/acceleration/) and others to accelerate their ZK proving pipeline.
 
-Many of these integrations have been a collaboration between Ingonyama and the integrating company. We have learned alot about designing GPU ZK provers. 
+Many of these integrations have been a collaboration between Ingonyama and the integrating company. We have learned a lot about designing GPU based ZK provers.  
 
-If your interested in understanding these integrations better and learning how you can use ICICLE to accelearte your existing ZK proving pipeline this is the place for you.
+If your interested in understanding these integrations better and learning how you can use ICICLE to accelerating your existing ZK proving pipeline this is the place for you.
 
 Lets illustrate an ICICLE integration, so you can understand the core API and design overview of ICICLE.
 
 ![ICICLE architecture](../../static/img/architecture-highlight.png)
 
-Engineers usually use a cryptography library such as Arkworks to implement their ZK protocols. These libraries implement efficient primitives which are used as building blocks for the protocol. ICICLE is such a library the difference is that ICICLE is designed from the start to run on GPUs. The Rust and Golang APIs abstract away all low level CUDA details, our goal was to allow developers with no GPU experience quickly get started with ICICLE. 
+Engineers usually use a cryptography library to implement their ZK protocols. These libraries implement efficient primitives which are used as building blocks for the protocol. ICICLE is such a library the difference is that ICICLE is designed from the start to run on GPUs. The Rust and Golang APIs abstract away all low level CUDA details, our goal was to allow developers with no GPU experience quickly get started with ICICLE. 
 
 A developer may use ICICLE with two main approaches in mind.
 
