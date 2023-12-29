@@ -9,17 +9,13 @@ ICICLE allows developers with minimal GPU experience to effortlessly accelerate 
 
 The diagram above displays the general architecture of ICICLE and the API layers that exists. At the lowest level we have CUDA kernels which implement all primitives such as MSM for example. Our C++ wrapper is compiled into a shared library this library can be used with our official Golang and Rust wrappers or you can implement a wrapper for it in any language of your desire. 
 
-
-To get started with ICICLE quickly follow this guide, getting started with ICICLE. If you want to learn more about CUDA or GPUs please refer to our GPU development guide.
-
-
 ## How can you use ICICLE ?
 
 ICICLE can be used in the same way you would use any other cryptography library. However over the past couple months developing and integrating ICICLE into many systems we found acouple use case catagories.
 
-### Using ready made ICICLE ZK provers
+### ICICLE for circuit developers
 
-If you are a circuit developer and are experiencing bottlenecks while running your circuits, ICICLE prover may be the solution.
+If you are a circuit developer and are experiencing bottlenecks while running your circuits, an ICICLE integrated prover may be the solution.
 
 ICICLE has been integrated into a number of popular ZK provers including [Gnark prover](https://github.com/Consensys/gnark) and [Halo2](https://github.com/zkonduit/halo2). This means that you can enjoy GPU acceleration for your existing circuits immediately without writing a single line of code by simply switching on the GPU prover flag!
 
@@ -33,7 +29,7 @@ ICICLE can be used to accelerate specific parts of your prover without completel
 
 ### Developing your own ZK provers
 
-If you are planning on developing your ZK prover from scratch ICICLE can be used develope an extremely optimized and scalable ZK prover. One of the examples GPU give is that you can scale your ZK prover across many machines in a data center.
+If you are planning on developing your ZK prover from scratch ICICLE can be used develope an extremely optimized and scalable ZK prover. One of the advantages GPUs provide is that you can scale your ZK prover across many machines in a data center.
 
 ### Developing proof of concepts
 
@@ -42,7 +38,7 @@ ICICLE is also ideal for developing small prototypes. ICICLE has Golang and Rust
 
 ## How can you access GPUs ?
 
-We understand that not all developer have access to a GPU. We don't want this to limit anyone from developing with ICICLE.
+We understand that not all developers have access to a GPU. We don't want this to limit anyone from developing with ICICLE.
 
 There for if you are working on an exciting project and you dont have access to a GPU please reach out to us via [telegram](https://t.me/RealElan) or [email](immanuel@ingonyama.com) we will be happy to assist you. 
 

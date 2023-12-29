@@ -43,26 +43,8 @@ module.exports = {
     },
     {
       type: "doc",
-      label: "Blaze",
-      id: 'blaze/overview',
-    },
-    {
-      type: "category",
-      label: "Moon Math Club",
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          label: "MSM Tutorial",
-          id: "blaze/introduction"
-        },
-        {
-          type: "doc",
-          label: "FFT Tutorial",
-          id: "blaze/introduction"
-        },
-        
-      ]
+      label: "Ingonyama Grant program",
+      id: "grants",
     },
     {
       type: "category",
