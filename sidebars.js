@@ -21,18 +21,23 @@ module.exports = {
         },
         {
           type: "doc",
+          label: "Official Integrations",
+          id: "icicle/integrations"
+        },
+        {
+          type: "doc",
           label: "Golang bindings",
-          id: "icicle/bindings",
+          id: "icicle/golang-bindings",
         },
         {
           type: "doc",
           label: "Rust bindings",
-          id: "icicle/bindings",
+          id: "icicle/rust-bindings",
         },
         {
           type: "doc",
-          label: "A guide to GPU development",
-          id: "icicle/gpu-development-guide",
+          label: "Supporting additional curves",
+          id: "icicle/supporting-additional-curves",
         },
       ]
     },
