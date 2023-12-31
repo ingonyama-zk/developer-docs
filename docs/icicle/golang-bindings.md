@@ -6,7 +6,7 @@ The `curves` directory contains implementations for every supported curve. Each 
 
 `goicicle.go` contains wrappers for CUDA memory allocation methods.
 
-`templates` contains scrips to generate new packages for new curves, so if you ever want to add support for a new curve your can generate it based off these templates.
+`templates` contains scripts to generate new packages for new curves, so if you ever want to add support for a new curve you can generate it based off these templates.
 
 ## Using ICICLE Golang bindings in your project
 
