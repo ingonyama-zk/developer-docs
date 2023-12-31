@@ -237,7 +237,7 @@ If you wish to create your own bindings for a language of your choice we suggest
 
 One of the core ideas behind ICICLE is the idea that developers can gradually accelerate their provers. Many protocols are written using other cryptographic libraries and completely replacing them may be complex and time consuming.
 
-There for we offer adapters for various popular libraries, these adapters allow us to convert points and scalars between different formats defined by various libraries. Here is a list:
+Therefore we offer adapters for various popular libraries, these adapters allow us to convert points and scalars between different formats defined by various libraries. Here is a list:
 
 Golang adapters:
 - [Gnark crypto adapter](https://github.com/ingonyama-zk/iciclegnark)
