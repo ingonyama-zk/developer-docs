@@ -143,7 +143,7 @@ cargo build --release
 
 This may take a couple of minutes since we are compiling both the CUDA and Rust code.
 
-To run test
+To run the tests
 
 ```
 cargo test -- --test-threads=1
