@@ -47,7 +47,7 @@ If you don't wish to install these prerequisites you can follow this tutorial fr
 
 ### Setting up ICICLE and running tests
 
-The objective of this guide is to make sure you can run the ICICLE Core, Rust and Golang tests, achieving this will make sure you know how to setup ICICLE and run a ICICLE program. For the sake of simplicity we will be using the ICICLE docker container as our environment, of course you may install the prerequisites on your machine and follow the same commands in your terminal.
+The objective of this guide is to make sure you can run the ICICLE Core, Rust and Golang tests. Achieving this will ensure you know how to setup ICICLE and run a ICICLE program. For simplicity, we will be using the ICICLE docker container as our environment, however, you may install the prerequisites on your machine and follow the same commands in your terminal.
 
 
 #### Setting up our environment
