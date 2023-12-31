@@ -2,7 +2,7 @@
 slug: /
 displayed_sidebar: GettingStartedSidebar
 ---
-# Introduction
+# Welcome to Ingonyamas developer documentation
 
 Ingonyama is a next-generation semiconductor company, focusing on Zero-Knowledge Proof hardware acceleration. We build accelerators for advanced cryptography, unlocking real-time applications. Our focus is on democratizing access to compute intensive cryptography and making it accessible for developers to build on top of.
 
@@ -20,7 +20,12 @@ Blaze is a Rust library for ZK acceleration on Xilinx FPGAs. It makes it easier 
 
 We believe GPUs are as important for ZK as for AI.
 
-From our point of view, GPUs are emerging as an essential infrastructure component for enabling ZK acceleration to reach the masses. This is due to their availability, industry proven scalability, extremely competitive performance to power ratio and the ease at which developers can integrate GPUs into their software stack. For a complete review of this topic we suggest you read [this article](https://www.ingonyama.com/blog/revisiting-paradigm-hardware-acceleration-for-zero-knowledge-proofs) by our CEO.
+- GPUs are a perfect match for ZK compute - around 97% of ZK protocol runtime is parallel by nature.
+- GPUs are simple for developers to use and scale compared to other hardware platforms.
+- GPUs are extremely competitive in terms of power / performance and price (3x cheaper).
+- GPUs are popular and readily available.
+
+For a more in-depth understanding on this topic we suggest you read [our article on the subject](https://www.ingonyama.com/blog/revisiting-paradigm-hardware-acceleration-for-zero-knowledge-proofs).
 
 However despite our current focus on GPUs we are still hard at work developing a ZPU (ZK Processing Unit), with the goal of offering a programmable hardware platform for ZK. To read more about ZPUs we suggest you read this [article](https://medium.com/@ingonyama/zpu-the-zero-knowledge-processing-unit-f886a48e00e0).
 

@@ -6,6 +6,8 @@ ICICLE allows developers with minimal GPU experience to effortlessly accelerate 
 
 ICICLE has been used by many leading ZK companies such as [Celer Network](https://github.com/celer-network), [Gnark](https://github.com/Consensys/gnark), [EZKL](https://blog.ezkl.xyz/post/acceleration/) and others to accelerate their ZK proving pipeline.
 
+Dont have a GPU? [read this](#dont-have-access-to-a-gpu)
+
 ## How can you use ICICLE?
 
 ICICLE can be used in the same way you would use any other cryptography library. However, over the past couple of months developing and integrating ICICLE into many systems we found a couple use case catagories.
@@ -33,29 +35,18 @@ If you are planning on developing your ZK prover from scratch ICICLE can be used
 ICICLE is also ideal for developing small prototypes. ICICLE has Golang and Rust bindings so you can easily develop a library implementing a specific primitive using ICICLE. An example would be develop a KZG commitment library using ICICLE.
 
 
-## How can you access GPUs?
+## Dont have access to a GPU?
 
-We understand that not all developers have access to a GPU and don't want this to limit anyone from developing with ICICLE.
-
-Therefore if you are working on an exciting project and you don't have access to a GPU please reach out to us via [telegram](https://t.me/RealElan) or [email](immanuel@ingonyama.com) we will be happy to assist you. 
-
-Ingonyama also offers two other options
+We understand that not all developers have access to a GPU and we don't want this to limit anyone from developing with ICICLE. Here are some ways we can help you gain access to GPUs.
 
 #### Grants
 
-At Ingonyama we are interested in accelerating the progress of ZK and cryptography. If are an engineer, developer or an academic researcher we invite you to checkout [our grant program](https://www.ingonyama.com/blog/icicle-for-researchers-grants-challenges). We will pay you to do your dream research !
+At Ingonyama we are interested in accelerating the progress of ZK and cryptography. If are an engineer, developer or an academic researcher we invite you to checkout [our grant program](https://www.ingonyama.com/blog/icicle-for-researchers-grants-challenges). We will give you access to GPUs and even pay you to do your dream research!
 
 #### Google Colab
 
 This is a great way to get started with ICICLE instantly. Google Colab offers free GPU access the down side being that the GPU doesn't have a lot of RAM but it should be enough for experimenting and even prototyping with ICICLE.
 
-For an extensive guide on how to setup Google Colab with ICICLE refer [here](https://github.com/gkigiermo/rust-cuda-colab).
+For an extensive guide on how to setup Google Colab with ICICLE refer to [this article](https://github.com/gkigiermo/rust-cuda-colab).
 
-## Why are we excited about GPUs?
-
-- GPUs are a perfect match for ZK compute - around 97% of ZK protocol runtime is parallel by nature.
-- GPUs are simple for developers to use and scale compared to other hardware platforms.
-- GPUs are extremely competitive in terms of power / performance and price (3x cheaper).
-- GPUs are popular and readily available.
-
-For a more in-depth understanding on this topic we suggest you read [our article on the subject](https://www.ingonyama.com/blog/revisiting-paradigm-hardware-acceleration-for-zero-knowledge-proofs).
+If none of these options are appropriate for you reach out to us on [telegram](https://t.me/RealElan) we will do our best to help you.
