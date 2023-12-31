@@ -29,7 +29,7 @@ However despite our current focus on GPUs we are still hard at work developing a
 ICICLE is an cryptography library for ZK using GPUs. 
 ICICLE implements blazing fast cryptographic primitives such as EC operations, MSM, NTT, Poseidon hash and more on GPU.
 
-ICICLE is designed to be easy to use, developers don't have to touch a single line of CUDA code. Our Rust and Golang ICICLE bindings allow your team to transition from CPU to GPU with minimal re-engineering. ICICLE is also scalable by nature, now that your proving pipeline supports GPU its possible to use ICICLE's multi GPU support to scale your prover across any number of GPUs.
+ICICLE is designed to be easy to use, developers don't have to touch a single line of CUDA code. Our Rust and Golang bindings allow your team to transition from CPU to GPU with minimal changes.
 
 Learn more about ICICLE and GPUs [here][ICICLE-OVERVIEW].
 
