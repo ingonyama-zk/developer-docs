@@ -41,7 +41,7 @@ Software engineers will enjoy Blazes abstractions allowing them to interact with
 
 ## Get in Touch
 
-If you have any questions, ideas, or are thinking of building something in this space join our discussion on [Discord]. Most of our work is open source, you can explore our code on [github](https://github.com/ingonyama-zk) or perhaps read some of [our research papers](https://github.com/ingonyama-zk/papers).
+If you have any questions, ideas, or are thinking of building something in this space join the discussion on [Discord]. You can explore our code on [github](https://github.com/ingonyama-zk) or read some of [our research papers](https://github.com/ingonyama-zk/papers).
 
 Follow us on [Twitter](https://x.com/Ingo_zk) and [YouTube](https://www.youtube.com/@ingo_ZK) and sign up for our [mailing list](https://wkf.ms/3LKCbdj) to get our latest announcements.
 
