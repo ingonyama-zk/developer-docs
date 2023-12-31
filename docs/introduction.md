@@ -37,7 +37,7 @@ Learn more about ICICLE and GPUs [here][ICICLE-OVERVIEW].
 
 Blaze is a Rust library for ZK acceleration on Xilinx FPGAs. Blaze can be used by both FPGA developer and software engineers looking to integrate FPGAs into their software. 
 
-Software engineers will enjoy Blazes abstractions allowing them to interact with FPGA drivers at a high level without having to implement low level read/write operations, we also allow developers to programmatically load binary's to an FPGA and much more. FPGA developers can benefit by building their accelerators based on our shell named [Wrapshell](https://github.com/Quarky93/warpshell). Wrapshell offers common features, such as the PCIe subsystem (DMA), AXI Firewalls, and infrastructure to reconfigure the user-partition at runtime as well as many more features which simplify and speed up the development of FPGA-based accelerators. Wrapshell with Blaze allow you to deliver easy to integrate custom PCIe-based FPGA accelerator.
+Software engineers will enjoy Blazes abstractions allowing them to interact with FPGA drivers at a high level without having to implement low level read/write operations, we also allow developers to programmatically load binaries to an FPGA and much more. FPGA developers can benefit by building their accelerators based on our shell named [Warpshell](https://github.com/Quarky93/warpshell). Warpshell offers common features, such as the PCIe subsystem (DMA), AXI Firewalls, and infrastructure to reconfigure the user-partition at runtime as well as many more features which simplify and speed up the development of FPGA-based accelerators. Warpshell with Blaze allows you to deliver easy to integrate custom PCIe-based FPGA accelerator.
 
 ## Get in Touch
 
