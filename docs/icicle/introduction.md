@@ -97,7 +97,7 @@ Make sure the release version is at least 12.0.
 
 #### ICICLE Core
 
-ICICLE Core is found under [`/icicle`](https://github.com/ingonyama-zk/icicle/tree/main/icicle). To build and run its test first:
+ICICLE Core is found under [`/icicle`](https://github.com/ingonyama-zk/icicle/tree/main/icicle). To build and run the tests first:
 
 ```
 cd icicle
