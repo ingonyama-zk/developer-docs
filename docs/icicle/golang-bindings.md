@@ -2,7 +2,7 @@
 
 Golang bindings allow you to use ICICLE as a Golang library.
 
-`curves` contains implementations for every supported curve, each curve its its own package and contain all the required primitives and methods and there is no need to import all curves into yur project.
+The `curves` directory contains implementations for every supported curve. Each curve is its own package and includes all the required primitives and methods. There is no need to import all curves into your project, only the ones your project requires.
 
 `goicicle.go` contains wrappers for CUDA memory allocation methods.
 
