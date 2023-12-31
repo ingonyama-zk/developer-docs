@@ -141,7 +141,7 @@ Now lets build our library
 cargo build --release
 ```
 
-This may take a couple minutes since we are compiling both the CUDA and Rust code.
+This may take a couple of minutes since we are compiling both the CUDA and Rust code.
 
 To run test
 
