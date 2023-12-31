@@ -10,7 +10,7 @@ The diagram above displays the general architecture of ICICLE and the API layers
 
 ICICLE Core compiles into a static library. This library can be used with our official Golang and Rust wrappers or you can implement a wrapper for it in any language.
 
-Based on this dependency architecture the ICICLE repository has three main sections, each section is independent from the other.
+Based on this dependency architecture, the ICICLE repository has three main sections, each of which is independent from the other.
 
 - ICICLE core
 - ICICLE Rust bindings
