@@ -10,7 +10,7 @@ Lets illustrate an ICICLE integration, so you can understand the core API and de
 
 ![ICICLE architecture](../../static/img/architecture-highlight.png)
 
-Engineers usually use a cryptography library to implement their ZK protocols. These libraries implement efficient primitives which are used as building blocks for the protocol. ICICLE is such a library the difference is that ICICLE is designed from the start to run on GPUs. The Rust and Golang APIs abstract away all low level CUDA details, our goal was to allow developers with no GPU experience quickly get started with ICICLE. 
+Engineers usually use a cryptography library to implement their ZK protocols. These libraries implement efficient primitives which are used as building blocks for the protocol; ICICLE is such a library. The difference is that ICICLE is designed from the start to run on GPUs; the Rust and Golang APIs abstract away all low level CUDA details. Our goal was to allow developers with no GPU experience to quickly get started with ICICLE. 
 
 A developer may use ICICLE with two main approaches in mind.
 
