@@ -4,7 +4,7 @@ ICICLE has been used by companies like [Celer Network](https://github.com/celer-
 
 Many of these integrations have been a collaboration between Ingonyama and the integrating company. We have learned a lot about designing GPU based ZK provers.  
 
-If your interested in understanding these integrations better and learning how you can use ICICLE to accelerating your existing ZK proving pipeline this is the place for you.
+If you're interested in understanding these integrations better or learning how you can use ICICLE to accelerate your existing ZK proving pipeline this is the place for you.
 
 Lets illustrate an ICICLE integration, so you can understand the core API and design overview of ICICLE.
 
