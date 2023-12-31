@@ -8,7 +8,7 @@ This guide is oriented towards developers who want to start writing code with th
 
 The diagram above displays the general architecture of ICICLE and the API layers that exist. The CUDA API, which we also call ICICLE Core, is the lowest level and is comprised of CUDA kernels which implement all primitives such as MSM as well as C++ wrappers which expose these methods for different curves.
 
-ICICLE Core compiled into a shared library this library can be used with our official Golang and Rust wrappers or you can implement a wrapper for it in any language of your desire.
+ICICLE Core compiles into a static library. This library can be used with our official Golang and Rust wrappers or you can implement a wrapper for it in any language.
 
 Based on this dependency architecture the ICICLE repository has three main sections, each section is independent from the other.
 
