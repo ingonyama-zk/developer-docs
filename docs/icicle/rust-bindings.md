@@ -25,7 +25,7 @@ When you build your project ICICLE will be built as part of the build command.
 
 # How do the rust bindings work?
 
-The rust bindings are just rust wrappers for ICICLE Core shared libraries which can be compiled. We integrate the compilation of the shared libraries into rusts toolchain to make usage seamless and easy. This is achieved by [extending rusts build command](https://github.com/ingonyama-zk/icicle/blob/main/wrappers/rust/icicle-curves/icicle-bn254/build.rs).
+The rust bindings are just rust wrappers for ICICLE Core static libraries which can be compiled. We integrate the compilation of the static libraries into rusts toolchain to make usage seamless and easy. This is achieved by [extending rusts build command](https://github.com/ingonyama-zk/icicle/blob/main/wrappers/rust/icicle-curves/icicle-bn254/build.rs).
 
 
 ```rust

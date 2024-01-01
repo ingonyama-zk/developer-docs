@@ -135,7 +135,7 @@ ctest
 
 #### ICICLE Rust
 
-The rust bindings work by first compiling the CUDA shared libraries as seen [here](https://github.com/ingonyama-zk/icicle/blob/main/wrappers/rust/icicle-curves/icicle-bn254/build.rs). The compilation of CUDA and the Rust library is all handled by the rust build toolchain.
+The rust bindings work by first compiling the CUDA static libraries as seen [here](https://github.com/ingonyama-zk/icicle/blob/main/wrappers/rust/icicle-curves/icicle-bn254/build.rs). The compilation of CUDA and the Rust library is all handled by the rust build toolchain.
 
 Similar to ICICLE Core here we also have to compile per curve.
 
@@ -181,11 +181,11 @@ Now lets build our static library
 make libbn254.so
 ```
 
-The current supported options are `libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so` and `all` to compile all curves. The resulting `.so` files are the compiled shared libraries for each curve.
+The current supported options are `libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so` and `all` to compile all curves. The resulting `.so` files are the compiled static libraries for each curve.
 
-`make clean` will remove compiled shared libraries.
+`make clean` will remove compiled static libraries.
 
-Before using the shared libraries we need to make our OS aware of them
+Before using the static libraries we need to make our OS aware of them
 
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH/<path_to_shared_libs>
@@ -193,7 +193,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH/<path_to_shared_libs>
 
 :::tip
 
-On some systems, despite exporting `LD_LIBRARY_PATH`, the system still won't be able to locate our shared libraries. In this case, try the following steps.
+On some systems, despite exporting `LD_LIBRARY_PATH`, the system still won't be able to locate our static libraries. In this case, try the following steps.
 
 ```
 export CGO_LDFLAGS="-L/<path_to_shared_lib>/"
@@ -259,11 +259,11 @@ You can now experiment with our other examples, perhaps try to run a rust or gol
 
 ## Writing new bindings for ICICLE
 
-Since ICICLE Core is written in CUDA / C++ its really simple to generate shared libraries. These shared libraries can be installed on any system and called by higher level languages such as Golang or Python.
+Since ICICLE Core is written in CUDA / C++ its really simple to generate static libraries. These static libraries can be installed on any system and called by higher level languages such as Golang or Python.
 
-Shared libraries can be loaded into memory once and used by multiple programs, reducing memory usage and potentially improving performance. They also allow you to separate functionality into distinct modules so your static library may need to compile only specific features that you want to use.
+static libraries can be loaded into memory once and used by multiple programs, reducing memory usage and potentially improving performance. They also allow you to separate functionality into distinct modules so your static library may need to compile only specific features that you want to use.
 
-Lets review the Golang bindings since its a pretty verbose example (compared to rust which hides it pretty well) of using shared libraries. Golang has a library named `CGO` which can be used to link shared libraries. Here's a basic example on how you can use cgo to link these libraries:
+Lets review the Golang bindings since its a pretty verbose example (compared to rust which hides it pretty well) of using static libraries. Golang has a library named `CGO` which can be used to link static libraries. Here's a basic example on how you can use cgo to link these libraries:
 
 
 ```go
@@ -286,7 +286,7 @@ func main() {
 
 The comments on the first line tell `CGO` which libraries to import as well as which header files to include. You can then call methods which are part of the static library and defined in the header file, `C.projective_from_affine_bn254` is an example.
 
-If you wish to create your own bindings for a language of your choice we suggest you start by investigating how you can call shared libraries.
+If you wish to create your own bindings for a language of your choice we suggest you start by investigating how you can call static libraries.
 
 ### ICICLE Adapters
 

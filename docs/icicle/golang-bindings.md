@@ -34,7 +34,7 @@ While this will add the ICICLE library to your project you sill need to build th
 make libbn254.so
 ```
 
-The current supported options are `libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so` and all to compile all curves. The resulting .so files are the compiled shared libraries for each curve.
+The current supported options are `libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so` and all to compile all curves. The resulting .so files are the compiled static libraries for each curve.
 
 
 Once the static library has been built
@@ -47,11 +47,11 @@ Now you should be able to run your ICICLE program as usual.
 
 # How do the Golang bindings work?
 
-The shared libraries produced from the CUDA code compilation are used to bind Golang to ICICLE's CUDA code.
+The static libraries produced from the CUDA code compilation are used to bind Golang to ICICLE's CUDA code.
 
-1. These shared libraries (`libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so`) can be imported in your Go project to leverage the GPU accelerated functionalities provided by ICICLE.
+1. These static libraries (`libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so`) can be imported in your Go project to leverage the GPU accelerated functionalities provided by ICICLE.
 
-2. In your Go project, you can use `cgo` to link these shared libraries. Here's a basic example on how you can use `cgo` to link these libraries:
+2. In your Go project, you can use `cgo` to link these static libraries. Here's a basic example on how you can use `cgo` to link these libraries:
 
 ```go
 /*
@@ -66,7 +66,7 @@ func main() {
 }
 ```
 
-Replace `/path/to/shared/libs` with the actual path where the shared libraries are located on your system.
+Replace `/path/to/shared/libs` with the actual path where the static libraries are located on your system.
 
 ## Common issues
 
