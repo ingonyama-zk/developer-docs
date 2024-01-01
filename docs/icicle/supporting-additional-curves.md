@@ -9,8 +9,6 @@ Supporting additional curves is still a work in progress and is bound to change 
 
 We understand the need for ZK developers to use different curves, some common some more exotic. For this reason we designed ICICLE to allow developers to add any curve they desire.
 
-Currently adding new curves is a bit manual but we will be improving the process in upcoming versions.
-
 ## ICICLE Core
 
 ICICLE core is very generic by design so all algorithms and primitives are designed to work based of configuration files [selected during compile](https://github.com/ingonyama-zk/icicle/blob/main/icicle/curves/curve_config.cuh) time. This is why we compile ICICLE Core per curve.
