@@ -4,7 +4,7 @@ This guide is oriented towards developers who want to start writing code with th
 
 ## ICICLE repository overview
 
-![ICICLE API overview](../../static/img/iciclestructure.png)
+![ICICLE API overview](../../static/img/apilevels.png)
 
 The diagram above displays the general architecture of ICICLE and the API layers that exist. The CUDA API, which we also call ICICLE Core, is the lowest level and is comprised of CUDA kernels which implement all primitives such as MSM as well as C++ wrappers which expose these methods for different curves.
 
