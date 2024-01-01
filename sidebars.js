@@ -21,43 +21,35 @@ module.exports = {
         },
         {
           type: "doc",
+          label: "Official Integrations",
+          id: "icicle/integrations"
+        },
+        {
+          type: "doc",
           label: "Golang bindings",
-          id: "icicle/bindings",
+          id: "icicle/golang-bindings",
         },
         {
           type: "doc",
           label: "Rust bindings",
-          id: "icicle/bindings",
+          id: "icicle/rust-bindings",
         },
         {
           type: "doc",
-          label: "A guide to GPU development",
-          id: "icicle/gpu-development-guide",
+          label: "Supporting additional curves",
+          id: "icicle/supporting-additional-curves",
         },
       ]
     },
     {
       type: "doc",
-      label: "Blaze",
-      id: 'blaze/overview',
+      label: "ZK Containers",
+      id: "zk-containers",
     },
     {
-      type: "category",
-      label: "Moon Math Club",
-      collapsed: false,
-      items: [
-        {
-          type: "doc",
-          label: "MSM Tutorial",
-          id: "blaze/introduction"
-        },
-        {
-          type: "doc",
-          label: "FFT Tutorial",
-          id: "blaze/introduction"
-        },
-        
-      ]
+      type: "doc",
+      label: "Ingonyama Grant program",
+      id: "grants",
     },
     {
       type: "category",
