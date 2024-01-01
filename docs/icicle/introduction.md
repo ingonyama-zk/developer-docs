@@ -119,7 +119,12 @@ cmake --build build
 `-DBUILD_TESTS=ON` compiles the tests, without this flag `ctest` wont work.
 `-DCURVE=bn254` tells the compiler which curve to build. You can find a list of supported curves [here](https://github.com/ingonyama-zk/icicle/tree/main/icicle/curves).
 
-The output in `build` folder should include the shared libraries for the compiled curve.
+The output in `build` folder should include the static libraries for the compiled curve.
+
+
+:::info
+Make sure to only use `-DBUILD_TESTS=ON` for running test as the archive output will only be available when `-DBUILD_TESTS=ON` is not supplied.
+:::
 
 To run the test 
 
