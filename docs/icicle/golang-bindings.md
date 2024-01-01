@@ -28,7 +28,7 @@ For a specific commit
 go get github.com/ingonyama-zk/icicle/goicicle@<commit_id>
 ```
 
-While this will add the ICICLE library to your project you sill need to build the shared library, using our [make file](https://github.com/ingonyama-zk/icicle/blob/main/goicicle/Makefile).
+While this will add the ICICLE library to your project you sill need to build the static library, using our [make file](https://github.com/ingonyama-zk/icicle/blob/main/goicicle/Makefile).
 
 ```
 make libbn254.so
@@ -37,7 +37,7 @@ make libbn254.so
 The current supported options are `libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so` and all to compile all curves. The resulting .so files are the compiled shared libraries for each curve.
 
 
-Once the shared library has been built
+Once the static library has been built
 
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH/<path_to_shared_libs>
@@ -70,7 +70,7 @@ Replace `/path/to/shared/libs` with the actual path where the shared libraries a
 
 ## Common issues
 
-### Cannot find shared library
+### Cannot find static library
 
 In some cases you may encounter the following error, despite exporting the correct `LD_LIBRARY_PATH`.
 
@@ -84,4 +84,4 @@ In some cases you may encounter the following error, despite exporting the corre
 collect2: error: ld returned 1 exit status
 ```
 
-This is normally fixed by exporting the path to the shared library location in the following way: `export CGO_LDFLAGS="-L/<path_to_shared_lib>/"`
+This is normally fixed by exporting the path to the static library location in the following way: `export CGO_LDFLAGS="-L/<path_to_shared_lib>/"`

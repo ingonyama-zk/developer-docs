@@ -164,13 +164,13 @@ cargo bench
 
 #### ICICLE Golang
 
-The Golang bindings are a bit more of a manual process. We start by compiling a shared library for a curve we want to use in this case `bn254`.
+The Golang bindings are a bit more of a manual process. We start by compiling a static library for a curve we want to use in this case `bn254`.
 
 ```
 cd goicicle
 ```
 
-Now lets build our shared library
+Now lets build our static library
 
 ```
 make libbn254.so
@@ -256,7 +256,7 @@ You can now experiment with our other examples, perhaps try to run a rust or gol
 
 Since ICICLE Core is written in CUDA / C++ its really simple to generate shared libraries. These shared libraries can be installed on any system and called by higher level languages such as Golang or Python.
 
-Shared libraries can be loaded into memory once and used by multiple programs, reducing memory usage and potentially improving performance. They also allow you to separate functionality into distinct modules so your shared library may need to compile only specific features that you want to use.
+Shared libraries can be loaded into memory once and used by multiple programs, reducing memory usage and potentially improving performance. They also allow you to separate functionality into distinct modules so your static library may need to compile only specific features that you want to use.
 
 Lets review the Golang bindings since its a pretty verbose example (compared to rust which hides it pretty well) of using shared libraries. Golang has a library named `CGO` which can be used to link shared libraries. Here's a basic example on how you can use cgo to link these libraries:
 
@@ -279,7 +279,7 @@ func main() {
 }
 ```
 
-The comments on the first line tell `CGO` which libraries to import as well as which header files to include. You can then call methods which are part of the shared library and defined in the header file, `C.projective_from_affine_bn254` is an example.
+The comments on the first line tell `CGO` which libraries to import as well as which header files to include. You can then call methods which are part of the static library and defined in the header file, `C.projective_from_affine_bn254` is an example.
 
 If you wish to create your own bindings for a language of your choice we suggest you start by investigating how you can call shared libraries.
 
