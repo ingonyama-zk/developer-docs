@@ -21,17 +21,17 @@ A developer may use ICICLE with two main approaches in mind.
 
 The first approach for GPU-accelerating your Prover with ICICLE is quick to implement, but it has limitations, such as reduced memory optimization and limited protocol tuning for GPUs. It's a solid starting point, but those committed to fully leveraging GPU acceleration should consider a more comprehensive approach.
 
-A full GPU replacement means preforming the entire ZK proof on the GPU. This approach will reduce latency to a minimum and requires you to change the way you implement the protocol to be more GPU friendly. This approach will take full advantage of GPU acceleration. Redesigning your prover this way may take more engineering effort but we promise you that its worth it!
+A full GPU replacement means performing the entire ZK proof on the GPU. This approach will reduce latency to a minimum and requires you to change the way you implement the protocol to be more GPU friendly. This approach will take full advantage of GPU acceleration. Redesigning your prover this way may take more engineering effort but we promise you that its worth it!
 
 ## Using ICICLE integrations
 
-Here we cover how a developer can run his existing circuits on ICICLE integrated provers.
+Here we cover how a developer can run existing circuits on ICICLE integrated provers.
 
 ### Gnark
 
 [Gnark](https://github.com/Consensys/gnark) officially supports GPU proving with ICICLE. Currently only Groth16 on curve `BN254` is supported. This means that if you are currently using Gnark to write your circuits you can enjoy GPU acceleration without making many changes.
 
-To use GPUs, add the icicle buildtag to your build/run commands, e.g. `go run -tags=icicle main.go.`
+To use GPUs, add the `icicle` buildtag to your build/run commands, e.g. `go run -tags=icicle main.go.`
 
 You must also switch to the ICICLE backend, WithIcicleAcceleration backend ProverOption:
 
