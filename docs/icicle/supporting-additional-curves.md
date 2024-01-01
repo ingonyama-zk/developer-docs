@@ -2,7 +2,7 @@
 
 :::note
 
-Supporting additional curves is still a work in progress and is bound to change in the future. Currently, the process is very manual; however, we are going to automate the majority of it in future releases.
+Supporting additional curves is still a work in progress and is bound to change in the future. Currently, the process is very manual but plan to automate the majority of it in future releases.
 
 :::
 

@@ -1,4 +1,4 @@
-# What is ICICLE ?
+# What is ICICLE?
 
 ICICLE is a cryptography library for ZK using GPUs. ICICLE implements blazing fast cryptographic primitives such as EC operations, MSM, NTT, Poseidon hash and more on GPU.
 
