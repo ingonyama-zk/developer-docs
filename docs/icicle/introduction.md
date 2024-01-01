@@ -1,6 +1,6 @@
 # Getting started with ICICLE
 
-This guide is oriented towards developers who want to start writing code with the ICICLE libraries. If you just want to run your existing ZK circuits on GPU refer to TODO[this guide](https://github.com/ingonyama-zk/icicle/tree/main/icicle) please.
+This guide is oriented towards developers who want to start writing code with the ICICLE libraries. If you just want to run your existing ZK circuits on GPU refer to [this guide](./integrations.md#using-icicle-integrations) please.
 
 ## ICICLE repository overview
 
@@ -42,8 +42,13 @@ This guide assumes that you have a Linux or Windows machine with a Nvidia GPU in
 - Any Nvidia GPU
 - Linux or Windows operating system.
 
+#### Optional Prerequisites
 
-If you don't wish to install these prerequisites you can follow this tutorial from within our [ZK-Container](https://github.com/ingonyama-zk/icicle/blob/main/Dockerfile) (docker container). To learn more about using ZK-Containers read this.
+- Docker, latest version. 
+- [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)
+
+
+If you don't wish to install these prerequisites you can follow this tutorial using a [ZK-Container](https://github.com/ingonyama-zk/icicle/blob/main/Dockerfile) (docker container). To learn more about using ZK-Containers [read this](../zk-containers.md).
 
 ### Setting up ICICLE and running tests
 
@@ -195,6 +200,57 @@ To run test for a specific curve
 ```
 go test ./goicicle/curves/bn254 -count=1
 ```
+
+### Running ICICLE examples
+
+ICICLE examples can be found [here](https://github.com/ingonyama-zk/icicle-examples) these examples cover some simple use cases using C++, rust and golang.
+
+In each example directory, ZK-container files are located in a subdirectory `.devcontainer`.
+
+* example-name/
+  * .devcontainer/
+    * Dockerfile
+    * devcontainer.json
+
+
+Lets run one of our C++ examples, in this case the [MSM example](https://github.com/ingonyama-zk/icicle-examples/blob/main/c%2B%2B/msm/example.cu).
+
+Clone the repository
+
+```
+git clone https://github.com/ingonyama-zk/icicle-examples.git
+cd icicle-examples
+```
+
+Enter the test directory
+
+```
+cd c++/msm
+```
+
+Now lets build our docker file and run the test inside it. Make sure you have installed the [optional prerequisites](#optional-prerequisites).
+
+```
+docker build -t icicle-example-msm -f .devcontainer/Dockerfile .
+```
+
+Lets start and enter the container
+
+```
+docker run -it --rm --gpus all -v .:/icicle-example icicle-example-msm
+```
+
+to run the example
+
+```
+rm -rf build
+mkdir -p build
+cmake -S . -B build
+cmake --build build
+./build/example
+```
+
+You can now experiment with our other examples, perhaps try to run a rust or golang example next.
 
 ## Writing new bindings for ICICLE
 
