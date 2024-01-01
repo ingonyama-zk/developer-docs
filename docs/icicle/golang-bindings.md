@@ -28,7 +28,14 @@ For a specific commit
 go get github.com/ingonyama-zk/icicle/goicicle@<commit_id>
 ```
 
-While this will add the ICICLE library to your project you sill need to build the shared library, refer to TODO[this guide](https://github.com/ingonyama-zk/icicle/tree/main/icicle) in order to build the shared library.
+While this will add the ICICLE library to your project you sill need to build the shared library, using our [make file](https://github.com/ingonyama-zk/icicle/blob/main/goicicle/Makefile).
+
+```
+make libbn254.so
+```
+
+The current supported options are `libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so` and all to compile all curves. The resulting .so files are the compiled shared libraries for each curve.
+
 
 Once the shared library has been built
 

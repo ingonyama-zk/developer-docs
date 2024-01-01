@@ -97,7 +97,7 @@ Make sure the release version is at least 12.0.
 
 #### ICICLE Core
 
-ICICLE Core is found under [`/icicle`](https://github.com/ingonyama-zk/icicle/tree/main/icicle). To build and run the tests first:
+ICICLE Core is found under [`<project_root>/icicle`](https://github.com/ingonyama-zk/icicle/tree/main/icicle). To build and run the tests first:
 
 ```
 cd icicle
@@ -181,26 +181,20 @@ Before using the shared libraries we need to make our OS aware of them
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH/<path_to_shared_libs>
 ```
 
-> :warning: **Warning**: On some systems, despite exporting `LD_LIBRARY_PATH`, the system still won't be able to locate our shared libraries. In this case, try the following steps.
->
-> ```
-> export CGO_LDFLAGS="-L/<path_to_shared_lib>/"
-> ```
+:::tip
+
+On some systems, despite exporting `LD_LIBRARY_PATH`, the system still won't be able to locate our shared libraries. In this case, try the following steps.
+
+```
+export CGO_LDFLAGS="-L/<path_to_shared_lib>/"
+```
+:::
 
 To run test for a specific curve
 
 ```
 go test ./goicicle/curves/bn254 -count=1
 ```
-
-## Using ICICLE in your project
-
-Using ICICLE Core in your project may be abit challenging as you may need to write wrappers and abstractions to make it easier to call the ICICLE methods. We offer developers two binding libraries:
-
-- Golang bindings
-- Rust bindings
-
-Using these bindings you can easily use ICICLE in your projects.
 
 ## Writing new bindings for ICICLE
 

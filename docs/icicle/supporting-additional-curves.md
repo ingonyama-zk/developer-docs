@@ -1,7 +1,10 @@
 # Supporting Additional Curves
 
-> :information_source: **Note**: Supporting additional curves is still a work in progress and is bound to change in the future. 
-> Currently, the process is very manual; however, we are going to automate the majority of it in future releases.
+:::note
+
+Supporting additional curves is still a work in progress and is bound to change in the future. Currently, the process is very manual; however, we are going to automate the majority of it in future releases.
+
+:::
 
 
 We understand the need for ZK developers to use different curves, some common some more exotic. For this reason we designed ICICLE to allow developers to add any curve they desire.

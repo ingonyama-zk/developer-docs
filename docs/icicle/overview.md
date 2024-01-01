@@ -18,8 +18,6 @@ If you are a circuit developer and are experiencing bottlenecks while running yo
 
 ICICLE has been integrated into a number of popular ZK provers including [Gnark prover](https://github.com/Consensys/gnark) and [Halo2](https://github.com/zkonduit/halo2). This means that you can enjoy GPU acceleration for your existing circuits immediately without writing a single line of code by simply switching on the GPU prover flag!
 
-If you wish to scale your prover across multiple GPUs refer to this guide.
-
 ### Integrating into existing ZK provers
 
 From our collaboration with [EZKL](https://blog.ezkl.xyz/post/acceleration/) we have learned that its possible to accelerate a specific part of your prover to solve for a specific bottleneck.
