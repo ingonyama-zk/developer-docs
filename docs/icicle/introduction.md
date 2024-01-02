@@ -20,7 +20,7 @@ Based on this dependency architecture, the ICICLE repository has three main sect
 
 [ICICLE core](https://github.com/ingonyama-zk/icicle/tree/main/icicle) contains all the low level CUDA code implementing primitives such as [points](https://github.com/ingonyama-zk/icicle/tree/main/icicle/primitives) and [MSM](https://github.com/ingonyama-zk/icicle/tree/main/icicle/appUtils/msm). There also exists higher level C++ wrappers to expose the low level CUDA primitives ([example](https://github.com/ingonyama-zk/icicle/blob/main/icicle/curves/bn254/msm.cu)).
 
-ICICLE Core would typically be compiled into a static library and used in a third party language such as Rust, Golang or Python.
+ICICLE Core would typically be compiled into a static library and used in a third party language such as Rust or Golang.
 
 ### ICICLE Rust and Golang bindings
 
@@ -224,7 +224,7 @@ You can now experiment with our other examples, perhaps try to run a rust or gol
 
 ## Writing new bindings for ICICLE
 
-Since ICICLE Core is written in CUDA / C++ its really simple to generate static libraries. These static libraries can be installed on any system and called by higher level languages such as Golang or Python.
+Since ICICLE Core is written in CUDA / C++ its really simple to generate static libraries. These static libraries can be installed on any system and called by higher level languages such as Golang.
 
 static libraries can be loaded into memory once and used by multiple programs, reducing memory usage and potentially improving performance. They also allow you to separate functionality into distinct modules so your static library may need to compile only specific features that you want to use.
 
