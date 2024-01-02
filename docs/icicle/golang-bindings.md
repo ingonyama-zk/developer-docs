@@ -1,5 +1,13 @@
 # Golang bindings
 
+:::info
+
+Golang bindings are not updated to be compatible with ICICLE v1. An update will be release very soon to fix this issue.
+
+
+To use ICICLE golang bindings please checkout a previous [release v0.1.0](https://github.com/ingonyama-zk/icicle/releases/tag/v0.1.0).
+:::
+
 Golang bindings allow you to use ICICLE as a Golang library.
 
 The `curves` directory contains implementations for every supported curve. Each curve is its own package and includes all the required primitives and methods. There is no need to import all curves into your project, only the ones your project requires.
@@ -13,8 +21,9 @@ The `curves` directory contains implementations for every supported curve. Each 
 Too add ICICLE to your `go.mod` file. 
 
 ```
-go get github.com/ingonyama-zk/icicle/goicicle
+go get github.com/ingonyama-zk/icicle@v0.1.0
 ```
+Notice that we are using [v0.1.0](https://github.com/ingonyama-zk/icicle/releases/tag/v0.1.0) this is the latest release that supports golang bindings.
 
 If you want to specify a specific branch
 
