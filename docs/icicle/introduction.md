@@ -20,7 +20,7 @@ Based on this dependency architecture, the ICICLE repository has three main sect
 
 [ICICLE core](https://github.com/ingonyama-zk/icicle/tree/main/icicle) contains all the low level CUDA code implementing primitives such as [points](https://github.com/ingonyama-zk/icicle/tree/main/icicle/primitives) and [MSM](https://github.com/ingonyama-zk/icicle/tree/main/icicle/appUtils/msm). There also exists higher level C++ wrappers to expose the low level CUDA primitives ([example](https://github.com/ingonyama-zk/icicle/blob/main/icicle/curves/bn254/msm.cu)).
 
-ICICLE Core would typically be compiled into a static library and used in a third party language such as Rust, Golang or Python.
+ICICLE Core would typically be compiled into a static library and used in a third party language such as Rust or Golang.
 
 ### ICICLE Rust and Golang bindings
 
@@ -169,42 +169,7 @@ cargo bench
 
 #### ICICLE Golang
 
-The Golang bindings are a bit more of a manual process. We start by compiling a static library for a curve we want to use in this case `bn254`.
-
-```
-cd goicicle
-```
-
-Now lets build our static library
-
-```
-make libbn254.so
-```
-
-The current supported options are `libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so` and `all` to compile all curves. The resulting `.so` files are the compiled static libraries for each curve.
-
-`make clean` will remove compiled static libraries.
-
-Before using the static libraries we need to make our OS aware of them
-
-```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH/<path_to_shared_libs>
-```
-
-:::tip
-
-On some systems, despite exporting `LD_LIBRARY_PATH`, the system still won't be able to locate our static libraries. In this case, try the following steps.
-
-```
-export CGO_LDFLAGS="-L/<path_to_shared_lib>/"
-```
-:::
-
-To run test for a specific curve
-
-```
-go test ./goicicle/curves/bn254 -count=1
-```
+Golang is WIP in v1, coming soon. Please checkout a previous [release v0.1.0](https://github.com/ingonyama-zk/icicle/releases/tag/v0.1.0) for golang bindings.
 
 ### Running ICICLE examples
 
@@ -259,7 +224,7 @@ You can now experiment with our other examples, perhaps try to run a rust or gol
 
 ## Writing new bindings for ICICLE
 
-Since ICICLE Core is written in CUDA / C++ its really simple to generate static libraries. These static libraries can be installed on any system and called by higher level languages such as Golang or Python.
+Since ICICLE Core is written in CUDA / C++ its really simple to generate static libraries. These static libraries can be installed on any system and called by higher level languages such as Golang.
 
 static libraries can be loaded into memory once and used by multiple programs, reducing memory usage and potentially improving performance. They also allow you to separate functionality into distinct modules so your static library may need to compile only specific features that you want to use.
 

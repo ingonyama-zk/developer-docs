@@ -14,11 +14,14 @@ Simply add the following to your `Cargo.toml`.
 
 ```
 # GPU Icicle integration
-icicle = { git = "https://github.com/ingonyama-zk/icicle.git" }
+icicle-cuda-runtime = { git = "https://github.com/ingonyama-zk/icicle.git", tag = "v1.0.0" }
+icicle-core = { git = "https://github.com/ingonyama-zk/icicle.git", tag = "v1.0.0" }
+icicle-bn254 = { git = "https://github.com/ingonyama-zk/icicle.git", tag = "v1.0.0" }
 ```
 
-If you wish to point to a specific ICICLE branch add `branch = "<name_of_branch>"` to the ICICLE dependency.
-For a specific commit add `rev = "<commit_id>"`.
+`icicle-bn254` being the curve you wish to use and `icicle-core` and `icicle-cuda-runtime` contain ICICLE utilities and CUDA wrappers.
+
+If you wish to point to a specific ICICLE branch add `branch = "<name_of_branch>"` or `tag = "<name_of_tag>"` to the ICICLE dependency. For a specific commit add `rev = "<commit_id>"`.
 
 When you build your project ICICLE will be built as part of the build command.
 
