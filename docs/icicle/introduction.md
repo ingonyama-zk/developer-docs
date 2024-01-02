@@ -169,42 +169,7 @@ cargo bench
 
 #### ICICLE Golang
 
-The Golang bindings are a bit more of a manual process. We start by compiling a static library for a curve we want to use in this case `bn254`.
-
-```
-cd goicicle
-```
-
-Now lets build our static library
-
-```
-make libbn254.so
-```
-
-The current supported options are `libbn254.so`, `libbls12_381.so`, `libbls12_377.so`, `libbw6_671.so` and `all` to compile all curves. The resulting `.so` files are the compiled static libraries for each curve.
-
-`make clean` will remove compiled static libraries.
-
-Before using the static libraries we need to make our OS aware of them
-
-```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH/<path_to_shared_libs>
-```
-
-:::tip
-
-On some systems, despite exporting `LD_LIBRARY_PATH`, the system still won't be able to locate our static libraries. In this case, try the following steps.
-
-```
-export CGO_LDFLAGS="-L/<path_to_shared_lib>/"
-```
-:::
-
-To run test for a specific curve
-
-```
-go test ./goicicle/curves/bn254 -count=1
-```
+Golang is WIP in v1, coming soon. Please checkout a previous [release v0.1.0](https://github.com/ingonyama-zk/icicle/releases/tag/v0.1.0) for golang bindings.
 
 ### Running ICICLE examples
 
