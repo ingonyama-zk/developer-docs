@@ -29,13 +29,13 @@ const config = {
           remarkPlugins: [math, require('mdx-mermaid')],
           rehypePlugins: [katex],
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/ingonyama-zk/developer-docs',
+          editUrl: 'https://github.com/ingonyama-zk/developer-docs/tree/main',
         },
         blog: {
           remarkPlugins: [math, require('mdx-mermaid')],
           rehypePlugins: [katex],
           showReadingTime: true,
-          editUrl: 'https://github.com/ingonyama-zk/developer-docs',
+          editUrl: 'https://github.com/ingonyama-zk/developer-docs/tree/main',
         },
         pages: {},
         theme: {
@@ -68,7 +68,7 @@ const config = {
     ({
       hideableSidebar: true,
       colorMode: {
-        defaultMode: 'light',
+        defaultMode: 'dark',
         respectPrefersColorScheme: false,
       },
       algolia: {
