@@ -50,4 +50,4 @@ If none of these options are appropriate for you reach out to us on [telegram](h
 
 ### Vast.ai
 
-[Vast.ai](https://vast.ai/) is a golabl GPU marketplace where you can rent many different types of GPUs by the hour for [competitve pricing](https://vast.ai/pricing). They provide on-demand and interruptible rentals depending on your need or use case; you can learn more about their rental types [here](https://vast.ai/faq#rental-types).
+[Vast.ai](https://vast.ai/) is a global GPU marketplace where you can rent many different types of GPUs by the hour for [competitive pricing](https://vast.ai/pricing). They provide on-demand and interruptible rentals depending on your need or use case; you can learn more about their rental types [here](https://vast.ai/faq#rental-types).
