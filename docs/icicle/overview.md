@@ -32,19 +32,22 @@ If you are planning on developing your ZK prover from scratch ICICLE can be used
 
 ICICLE is also ideal for developing small prototypes. ICICLE has Golang and Rust bindings so you can easily develop a library implementing a specific primitive using ICICLE. An example would be develop a KZG commitment library using ICICLE.
 
-
 ## Dont have access to a GPU?
 
 We understand that not all developers have access to a GPU and we don't want this to limit anyone from developing with ICICLE. Here are some ways we can help you gain access to GPUs.
 
-#### Grants
+### Grants
 
 At Ingonyama we are interested in accelerating the progress of ZK and cryptography. If are an engineer, developer or an academic researcher we invite you to checkout [our grant program](https://www.ingonyama.com/blog/icicle-for-researchers-grants-challenges). We will give you access to GPUs and even pay you to do your dream research!
 
-#### Google Colab
+### Google Colab
 
 This is a great way to get started with ICICLE instantly. Google Colab offers free GPU access the down side being that the GPU doesn't have a lot of RAM but it should be enough for experimenting and even prototyping with ICICLE.
 
 For an extensive guide on how to setup Google Colab with ICICLE refer to [this article](https://github.com/gkigiermo/rust-cuda-colab).
 
 If none of these options are appropriate for you reach out to us on [telegram](https://t.me/RealElan) we will do our best to help you.
+
+### Vast.ai
+
+[Vast.ai](https://vast.ai/) is a golabl GPU marketplace where you can rent many different types of GPUs by the hour for [competitve pricing](https://vast.ai/pricing). They provide on-demand and interruptible rentals depending on your need or use case; you can learn more about their rental types [here](https://vast.ai/faq#rental-types).
