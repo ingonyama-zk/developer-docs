@@ -2,7 +2,7 @@
 slug: /
 displayed_sidebar: GettingStartedSidebar
 ---
-# Welcome to Ingonyamas developer documentation
+# Welcome to Ingonyamas Developer Documentation
 
 Ingonyama is a next-generation semiconductor company, focusing on Zero-Knowledge Proof hardware acceleration. We build accelerators for advanced cryptography, unlocking real-time applications. Our focus is on democratizing access to compute intensive cryptography and making it accessible for developers to build on top of.
 

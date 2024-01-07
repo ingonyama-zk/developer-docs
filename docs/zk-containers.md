@@ -2,6 +2,8 @@
 
 We found that developing ZK provers with ICICLE gives developers the ability to scale ZK provers across many machines and many GPUs. To make this possible we developed the ZK Container.
 
+## What is a ZK Container?
+
 A ZK Container is an standardized, optimized and secure docker container that we configured with ICICLE applications in mind. A developer using ZK Containers can deploy an ICICLE application on a single machine or on a thousand GPU machines in a data center with minimal concerns regarding compatibility.
 
 ZK Containers have been used by Ingonyama clients to achieve scalability across large data centers.
