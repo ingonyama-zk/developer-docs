@@ -44,7 +44,7 @@ module.exports = {
     {
       type: "doc",
       label: "ZK Containers",
-      id: "zk-containers",
+      id: "ZKContainers",
     },
     {
       type: "doc",

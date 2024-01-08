@@ -48,7 +48,7 @@ This guide assumes that you have a Linux or Windows machine with a Nvidia GPU in
 - [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)
 
 
-If you don't wish to install these prerequisites you can follow this tutorial using a [ZK-Container](https://github.com/ingonyama-zk/icicle/blob/main/Dockerfile) (docker container). To learn more about using ZK-Containers [read this](../zk-containers.md).
+If you don't wish to install these prerequisites you can follow this tutorial using a [ZK-Container](https://github.com/ingonyama-zk/icicle/blob/main/Dockerfile) (docker container). To learn more about using ZK-Containers [read this](../ZKContainers.md).
 
 ### Setting up ICICLE and running tests
 
