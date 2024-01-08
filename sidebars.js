@@ -52,6 +52,11 @@ module.exports = {
       id: "grants",
     },
     {
+      type: "doc",
+      label: "Contributor guide",
+      id: "contributor-guide",
+    },
+    {
       type: "category",
       label: "Additional Resources",
       collapsed: false,
@@ -71,6 +76,11 @@ module.exports = {
           label: "Ingopedia",
           href: "https://www.ingonyama.com/ingopedia"
         },
+        {
+          href: 'https://github.com/ingonyama-zk',
+          type: "link",
+          label: 'GitHub',
+        }
       ]
     }
   ],
