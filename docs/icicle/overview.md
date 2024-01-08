@@ -4,7 +4,7 @@ ICICLE is a cryptography library for ZK using GPUs. ICICLE implements blazing fa
 
 ICICLE allows developers with minimal GPU experience to effortlessly accelerate there ZK application; from our experiments, even the most naive implementation may yield 10X improvement in proving times.
 
-ICICLE has been used by many leading ZK companies such as [Celer Network](https://github.com/celer-network), [Gnark](https://github.com/Consensys/gnark), [EZKL](https://blog.ezkl.xyz/post/acceleration/) and others to accelerate their ZK proving pipeline.
+ICICLE has been used by many leading ZK companies such as [Celer Network](https://github.com/celer-network), [Gnark](https://github.com/Consensys/gnark) and others to accelerate their ZK proving pipeline.
 
 ## Dont have access to a GPU?
 
@@ -45,7 +45,7 @@ ICICLE has been integrated into a number of popular ZK provers including [Gnark 
 
 ### Integrating into existing ZK provers
 
-From our collaboration with [EZKL](https://blog.ezkl.xyz/post/acceleration/) we have learned that its possible to accelerate a specific part of your prover to solve for a specific bottleneck.
+From our collaborations we have learned that its possible to accelerate a specific part of your prover to solve for a specific bottleneck.
 
 ICICLE can be used to accelerate specific parts of your prover without completely rewriting your ZK prover.
 
