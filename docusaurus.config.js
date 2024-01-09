@@ -73,12 +73,12 @@ const config = {
       },
       algolia: {
         // The application ID provided by Algolia
-        appId: 'YOUR_APP_ID',
+        appId: 'PZY4KJBBBK',
   
         // Public API key: it is safe to commit it
-        apiKey: 'YOUR_SEARCH_API_KEY',
+        apiKey: '2cc940a6e0ef5c117f4f44e7f4e6e20b',
   
-        indexName: 'YOUR_INDEX_NAME',
+        indexName: 'ingonyama_dev_docs',
   
         // Optional: see doc section below
         contextualSearch: true,
@@ -97,8 +97,6 @@ const config = {
   
         // Optional: path for search page that enabled by default (`false` to disable it)
         searchPagePath: 'search',
-  
-        //... other Algolia params
       },
       navbar: {
         title: 'Ingonyama Developer Documentation',
