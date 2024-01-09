@@ -1,6 +1,6 @@
 # Integrations
 
-ICICLE has been used by companies like [Celer Network](https://github.com/celer-network), [Gnark](https://github.com/Consensys/gnark), [EZKL](https://blog.ezkl.xyz/post/acceleration/) and others to accelerate their ZK proving pipeline.
+ICICLE has been used by companies like [Celer Network](https://github.com/celer-network), [Gnark](https://github.com/Consensys/gnark) and others to accelerate their ZK proving pipeline.
 
 Many of these integrations have been a collaboration between Ingonyama and the integrating company. We have learned a lot about designing GPU based ZK provers.  
 
@@ -48,8 +48,8 @@ You can reference the [Gnark docs](https://github.com/Consensys/gnark?tab=readme
 
 ### Halo2
 
-EZKL [Halo2](https://github.com/zkonduit/halo2) fork integrated with ICICLE for GPU acceleration. This means that you can run your existing Halo2 circuits with GPU acceleration just by activating a feature flag.
+[Halo2](https://github.com/zkonduit/halo2) fork integrated with ICICLE for GPU acceleration. This means that you can run your existing Halo2 circuits with GPU acceleration just by activating a feature flag.
 
 To enable GPU acceleration just enable `icicle_gpu` [feature flag](https://github.com/zkonduit/halo2/blob/3d7b5e61b3052680ccb279e05bdcc21dd8a8fedf/halo2_proofs/Cargo.toml#L102).
 
-This feature flag will seamlessly toggle on GPU acceleration for you. You can have a look at [EZKL](https://github.com/zkonduit/ezkl) to see how their team utilized GPU acceleration.
+This feature flag will seamlessly toggle on GPU acceleration for you.

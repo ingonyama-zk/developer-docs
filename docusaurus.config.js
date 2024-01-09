@@ -101,7 +101,7 @@ const config = {
         //... other Algolia params
       },
       navbar: {
-        title: 'Ingonyama Developer Documentaion',
+        title: 'Ingonyama Developer Documentation',
         logo: {
           alt: 'Ingonyama Logo',
           src: 'img/logo.png',
