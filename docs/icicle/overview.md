@@ -1,3 +1,8 @@
+![Static Badge](https://img.shields.io/badge/Machines%20running%20ICICLE-544-lightblue)
+
+
+
+
 # What is ICICLE?
 
 ICICLE is a cryptography library for ZK using GPUs. ICICLE implements blazing fast cryptographic primitives such as EC operations, MSM, NTT, Poseidon hash and more on GPU.
