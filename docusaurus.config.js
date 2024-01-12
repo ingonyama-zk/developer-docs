@@ -78,7 +78,7 @@ const config = {
         // Public API key: it is safe to commit it
         apiKey: '2cc940a6e0ef5c117f4f44e7f4e6e20b',
   
-        indexName: 'ingonyama_dev_docs',
+        indexName: 'ingonyama',
   
         // Optional: see doc section below
         contextualSearch: true,
