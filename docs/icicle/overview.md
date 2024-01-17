@@ -2,7 +2,7 @@
 
 ![Static Badge](https://img.shields.io/badge/Machines%20running%20ICICLE-544-lightblue)
 
-ICICLE is a cryptography library for ZK using GPUs. ICICLE implements blazing fast cryptographic primitives such as EC operations, MSM, NTT, Poseidon hash and more on GPU.
+[ICICLE](https://github.com/ingonyama-zk/icicle) is a cryptography library for ZK using GPUs. ICICLE implements blazing fast cryptographic primitives such as EC operations, MSM, NTT, Poseidon hash and more on GPU.
 
 ICICLE allows developers with minimal GPU experience to effortlessly accelerate there ZK application; from our experiments, even the most naive implementation may yield 10X improvement in proving times.
 
@@ -37,7 +37,7 @@ If none of these options suit your needs, contact us on [telegram](https://t.me/
 
 ## What can you do with ICICLE?
 
-ICICLE can be used in the same way you would use any other cryptography library. Over the past couple of months developing and integrating ICICLE into many systems, we found a couple use case catagories:
+[ICICLE](https://github.com/ingonyama-zk/icicle) can be used in the same way you would use any other cryptography library. Over the past couple of months developing and integrating ICICLE into many systems, we found a couple use case catagories:
 
 ### Circuit developers
 
