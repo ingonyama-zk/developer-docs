@@ -8,15 +8,11 @@ As Colab is able to interact with shell commands, a user can also install a fram
 First thing to do in a notebook is to set the runtime type to a T4 GPU.
 * in the upper corner click on the dropdown menu and select "change runtime type"
 
-<p align="center">
-<img alt="Change Runtime Type" width="300" src="./imgs/Change_runtime_type.png"/>
-</p>
+![Change runtime](../../static/img/colab_change_runtime.png)
 
 * In the window select "T4 GPU" and press Save
 
-<p align="center">
-<img alt="T4 GPU" width="300" src="./imgs/T4_GPU.png"/>
-</p>
+![T4 GPU](../../static/img/t4_gpu.png)
 
 Installing Rust is rather simple, just execute the following command:
 
