@@ -1,11 +1,12 @@
-# Run Icicle on Google Colab
+# Run ICICLE on Google Colab
 
-Google Colab let's you use a GPU free of charge, it's a Nvidia T4 GPU with 16 GB of memory, capable of running latest Cuda (tested on Cuda 12.2)
+Google Colab let's you use a GPU free of charge, it's an Nvidia T4 GPU with 16 GB of memory, capable of running latest CUDA (tested on Cuda 12.2)
 As Colab is able to interact with shell commands, a user can also install a framework and load git repositories into Colab space.
 
 ## Prepare Colab environment
 
 First thing to do in a notebook is to set the runtime type to a T4 GPU.
+
 * in the upper corner click on the dropdown menu and select "change runtime type"
 
 ![Change runtime](../../static/img/colab_change_runtime.png)
@@ -19,12 +20,14 @@ Installing Rust is rather simple, just execute the following command:
 ```sh
 !apt install rustc cargo
 ```
+
 To test the installation of Rust:
 
 ```sh
 !rustc --version
 !cargo --version
 ```
+
 A successful installation will result in a rustc and cargo version print, a faulty installation will look like this:
 
 ```sh
@@ -82,25 +85,33 @@ Wed Jan 17 13:10:18 2024
 ## Clonig ICICLE and running test
 
 Now we are ready to clone ICICE repository,
+
 ```sh
 !git clone https://github.com/ingonyama-zk/icicle.git
 ```
 
 We now can browse the repository and run tests to check the runtime environment:
+
 ```sh
 !ls -la
 %cd icicle
 ```
+
 Let's run a test!
 Navigate to icicle/wrappers/rust/icicle-curves/icicle-bn254 and run cargo test:
+
 ```sh
 %cd icicle/wrappers/rust/icicle-curves/icicle-bn254/
 !cargo test --release
 ```
-[!NOTE]
-> Note that first time compilation may take some time
 
-Test run should end like this: 
+:::note
+
+Compiling the first time may take a while
+
+:::
+
+Test run should end like this:
 
 ```sh
 running 15 tests
