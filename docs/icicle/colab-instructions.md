@@ -82,7 +82,7 @@ Wed Jan 17 13:10:18 2024
 +---------------------------------------------------------------------------------------+
 ```
 
-## Clonig ICICLE and running test
+## Cloning ICICLE and running test
 
 Now we are ready to clone ICICE repository,
 
