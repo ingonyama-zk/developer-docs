@@ -8,7 +8,7 @@ const katex = require('rehype-katex');
 const config = {
   title: 'Ingonyama Developer Documentation',
   tagline: 'Ingonyama is a next-generation semiconductor company, focusing on Zero-Knowledge Proof hardware acceleration. We build accelerators for advanced cryptography, unlocking real-time applications.',
-  url: 'https://www.docs.ingonyama.com/',
+  url: 'https://dev.ingonyama.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -78,7 +78,7 @@ const config = {
         // Public API key: it is safe to commit it
         apiKey: '2cc940a6e0ef5c117f4f44e7f4e6e20b',
   
-        indexName: 'ingonyama_dev_docs',
+        indexName: 'ingonyama',
   
         // Optional: see doc section below
         contextualSearch: true,
