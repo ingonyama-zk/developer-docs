@@ -31,11 +31,6 @@ use icicle_bn254::curve::{
     ScalarField,
 };
 
-use icicle_bls12_377::curve::{
-    ScalarCfg as BLS12377ScalarCfg,
-    ScalarField as BLS12377ScalarField
-};
-
 use icicle_cuda_runtime::{
     stream::CudaStream,
     memory::DeviceSlice,
@@ -44,22 +39,7 @@ use icicle_cuda_runtime::{
 
 use icicle_core::{
     ntt::{self, NTT},
-    traits::{GenerateRandom, FieldImpl}
 };
-
-use icicle_core::traits::ArkConvertible;
-
-use ark_bn254::Fr as Bn254Fr;
-use ark_bls12_377::Fr as Bls12377Fr;
-use ark_ff::FftField;
-use ark_poly::{EvaluationDomain, Radix2EvaluationDomain};
-use ark_std::cmp::{Ord, Ordering};
-use std::convert::TryInto;
-
-#[cfg(feature = "profile")]
-use std::time::Instant;
-
-use clap::Parser;
 
 fn main() {
     let size = 1 << 23;
