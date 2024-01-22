@@ -32,7 +32,9 @@ Here we cover how a developer can run existing circuits on ICICLE integrated pro
 [Gnark](https://github.com/Consensys/gnark) officially supports GPU proving with ICICLE. Currently only Groth16 on curve `BN254` is supported. This means that if you are currently using Gnark to write your circuits you can enjoy GPU acceleration without making many changes.
 
 :::info
+
 Currently ICICLE has been merged to Gnark [master branch](https://github.com/Consensys/gnark), however a the [latest release](https://github.com/Consensys/gnark/releases/tag/v0.9.1) is from October 2023.
+
 :::
 
 Make sure your golang circuit project has `gnark` as a dependency. And make sure that you are using the master branch for now.
