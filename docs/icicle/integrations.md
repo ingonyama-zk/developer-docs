@@ -2,7 +2,7 @@
 
 ICICLE has been used by companies like [Celer Network](https://github.com/celer-network), [Gnark](https://github.com/Consensys/gnark) and others to accelerate their ZK proving pipeline.
 
-Many of these integrations have been a collaboration between Ingonyama and the integrating company. We have learned a lot about designing GPU based ZK provers.  
+Many of these integrations have been a collaboration between Ingonyama and the integrating company. We have learned a lot about designing GPU based ZK provers.
 
 If you're interested in understanding these integrations better or learning how you can use ICICLE to accelerate your existing ZK proving pipeline this is the place for you.
 
@@ -12,7 +12,7 @@ Lets illustrate an ICICLE integration, so you can understand the core API and de
 
 ![ICICLE architecture](../../static/img/architecture-high-level.png)
 
-Engineers usually use a cryptography library to implement their ZK protocols. These libraries implement efficient primitives which are used as building blocks for the protocol; ICICLE is such a library. The difference is that ICICLE is designed from the start to run on GPUs; the Rust and Golang APIs abstract away all low level CUDA details. Our goal was to allow developers with no GPU experience to quickly get started with ICICLE. 
+Engineers usually use a cryptography library to implement their ZK protocols. These libraries implement efficient primitives which are used as building blocks for the protocol; ICICLE is such a library. The difference is that ICICLE is designed from the start to run on GPUs; the Rust and Golang APIs abstract away all low level CUDA details. Our goal was to allow developers with no GPU experience to quickly get started with ICICLE.
 
 A developer may use ICICLE with two main approaches in mind.
 
@@ -61,7 +61,7 @@ To switch over to ICICLE proving, make sure to change the backend you are using,
 ```
 // toggle on
 proofIci, err := groth16.Prove(ccs, pk, secretWitness, backend.WithIcicleAcceleration())
-    
+
 // toggle off
 proof, err := groth16.Prove(ccs, pk, secretWitness)
 ```
@@ -87,7 +87,6 @@ Your logs should look something like this if everything went as expected.
 `acceleration=icicle` indicates that the prover is running in acceleration mode with ICICLE.
 
 You can reference the [Gnark docs](https://github.com/Consensys/gnark?tab=readme-ov-file#gpu-support) for further information.
-
 
 ### Halo2
 

@@ -2,6 +2,7 @@
 slug: /
 displayed_sidebar: GettingStartedSidebar
 ---
+
 # Welcome to Ingonyama's Developer Documentation
 
 Ingonyama is a next-generation semiconductor company, focusing on Zero-Knowledge Proof hardware acceleration. We build accelerators for advanced cryptography, unlocking real-time applications. Our focus is on democratizing access to compute intensive cryptography and making it accessible for developers to build on top of.
@@ -9,7 +10,7 @@ Ingonyama is a next-generation semiconductor company, focusing on Zero-Knowledge
 Currently our flagship products are:
 
 - **ICICLE**:
-[ICICLE](https://github.com/ingonyama-zk/icicle) is a fully featured GPU accelerated cryptography library for building ZK provers. ICICLE allows you to accelerate your ZK existing protocols in a matter of hours or implement your protocol from scratch on GPU.
+  [ICICLE](https://github.com/ingonyama-zk/icicle) is a fully featured GPU accelerated cryptography library for building ZK provers. ICICLE allows you to accelerate your ZK existing protocols in a matter of hours or implement your protocol from scratch on GPU.
 
 ---
 

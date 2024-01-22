@@ -6,7 +6,6 @@ Supporting additional curves is still a work in progress and is bound to change 
 
 :::
 
-
 We understand the need for ZK developers to use different curves, some common some more exotic. For this reason we designed ICICLE to allow developers to add any curve they desire.
 
 ## ICICLE Core
@@ -45,20 +44,18 @@ In order to support a new curves in the binding libraries you first must support
 
 Create a new folder named `icicle-<curve_name>` under the [rust wrappers folder](https://github.com/ingonyama-zk/icicle/tree/main/wrappers/rust/icicle-curves). Your new directory should look like this.
 
-
-* icicle-<curve_name>/
-  * src/
-    * ntt/
-        * mod.rs
-    * msm/
-        * mod.rs
-    * curve.rs
-    * lib.rs
-  * Cargo.toml
-  * build.rs
+- icicle-<curve_name>/
+  - src/
+    - ntt/
+      - mod.rs
+    - msm/
+      - mod.rs
+    - curve.rs
+    - lib.rs
+  - Cargo.toml
+  - build.rs
 
 Lets look at [`ntt/mod.rs`](https://github.com/ingonyama-zk/icicle/blob/main/wrappers/rust/icicle-curves/icicle-bn254/src/ntt/mod.rs) for example.
-
 
 ```
 ...

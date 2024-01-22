@@ -25,10 +25,9 @@ ICICLE Core would typically be compiled into a static library and used in a thir
 ### ICICLE Rust and Golang bindings
 
 - [ICICLE Rust bindings](https://github.com/ingonyama-zk/icicle/tree/main/wrappers/rust)
-- [ICICLE Golang bindings](https://github.com/ingonyama-zk/icicle/tree/main/goicicle) 
+- [ICICLE Golang bindings](https://github.com/ingonyama-zk/icicle/tree/main/goicicle)
 
 These bindings allow you to easily use ICICLE in a Rust or Golang project. Setting up Golang bindings requires a bit of extra steps compared to the Rust bindings which utilize the `cargo build` tool.
-
 
 ## Running ICICLE
 
@@ -44,16 +43,14 @@ This guide assumes that you have a Linux or Windows machine with a Nvidia GPU in
 
 #### Optional Prerequisites
 
-- Docker, latest version. 
+- Docker, latest version.
 - [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html)
-
 
 If you don't wish to install these prerequisites you can follow this tutorial using a [ZK-Container](https://github.com/ingonyama-zk/icicle/blob/main/Dockerfile) (docker container). To learn more about using ZK-Containers [read this](../ZKContainers.md).
 
 ### Setting up ICICLE and running tests
 
 The objective of this guide is to make sure you can run the ICICLE Core, Rust and Golang tests. Achieving this will ensure you know how to setup ICICLE and run a ICICLE program. For simplicity, we will be using the ICICLE docker container as our environment, however, you may install the prerequisites on your machine and follow the same commands in your terminal.
-
 
 #### Setting up our environment
 
@@ -70,7 +67,7 @@ docker build -t icicle-demo .
 docker run -it --runtime=nvidia --gpus all --name icicle_container icicle-demo
 ```
 
-- `-it` runs the container in interactive mode with a terminal. 
+- `-it` runs the container in interactive mode with a terminal.
 - `--gpus all` Allocate all available GPUs to the container. You can also specify which GPUs to use if you don't want to allocate all.
 - `--runtime=nvidia` Use the NVIDIA runtime, necessary for GPU support.
 
@@ -121,12 +118,11 @@ cmake --build build
 
 The output in `build` folder should include the static libraries for the compiled curve.
 
-
 :::info
 Make sure to only use `-DBUILD_TESTS=ON` for running test as the archive output will only be available when `-DBUILD_TESTS=ON` is not supplied.
 :::
 
-To run the test 
+To run the test
 
 ```
 cd build
@@ -177,11 +173,10 @@ ICICLE examples can be found [here](https://github.com/ingonyama-zk/icicle-examp
 
 In each example directory, ZK-container files are located in a subdirectory `.devcontainer`.
 
-* example-name/
-  * .devcontainer/
-    * Dockerfile
-    * devcontainer.json
-
+- example-name/
+  - .devcontainer/
+    - Dockerfile
+    - devcontainer.json
 
 Lets run one of our C++ examples, in this case the [MSM example](https://github.com/ingonyama-zk/icicle-examples/blob/main/c%2B%2B/msm/example.cu).
 
@@ -230,7 +225,6 @@ static libraries can be loaded into memory once and used by multiple programs, r
 
 Lets review the Golang bindings since its a pretty verbose example (compared to rust which hides it pretty well) of using static libraries. Golang has a library named `CGO` which can be used to link static libraries. Here's a basic example on how you can use cgo to link these libraries:
 
-
 ```go
 /*
 #cgo LDFLAGS: -L/path/to/shared/libs -lbn254 -lbls12_381 -lbls12_377 -lbw6_671
@@ -260,4 +254,5 @@ One of the core ideas behind ICICLE is that developers can gradually accelerate 
 Therefore we offer adapters for various popular libraries, these adapters allow us to convert points and scalars between different formats defined by various libraries. Here is a list:
 
 Golang adapters:
+
 - [Gnark crypto adapter](https://github.com/ingonyama-zk/iciclegnark)

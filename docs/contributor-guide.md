@@ -21,4 +21,3 @@ When opening a [pull request](https://github.com/ingonyama-zk/icicle/pulls) plea
 ## Questions?
 
 Find us on [Discord](https://discord.gg/6vYrE7waPj).
-
