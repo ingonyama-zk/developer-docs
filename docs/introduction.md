@@ -1,6 +1,7 @@
 ---
 slug: /
 displayed_sidebar: GettingStartedSidebar
+title: ''
 ---
 
 # Welcome to Ingonyama's Developer Documentation

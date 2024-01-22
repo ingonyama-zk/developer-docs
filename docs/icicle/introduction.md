@@ -56,13 +56,13 @@ The objective of this guide is to make sure you can run the ICICLE Core, Rust an
 
 Lets begin by cloning the ICICLE repository:
 
-```
+```sh
 git clone https://github.com/ingonyama-zk/icicle
 ```
 
-We wil proceed to build the docker image [found here](https://github.com/ingonyama-zk/icicle/blob/main/Dockerfile):
+We will proceed to build the docker image [found here](https://github.com/ingonyama-zk/icicle/blob/main/Dockerfile):
 
-```
+```sh
 docker build -t icicle-demo .
 docker run -it --runtime=nvidia --gpus all --name icicle_container icicle-demo
 ```
@@ -75,19 +75,19 @@ To read more about these settings reference this [article](https://developer.nvi
 
 If you accidentally close your terminal and want to reconnect just call:
 
-```
+```sh
 docker exec -it icicle_container bash
 ```
 
 Lets make sure that we have the correct CUDA version before proceeding
 
-```
+```sh
 nvcc --version
 ```
 
 You should see something like this
 
-```
+```sh
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2023 NVIDIA Corporation
 Built on Tue_Aug_15_22:02:13_PDT_2023
@@ -101,30 +101,32 @@ Make sure the release version is at least 12.0.
 
 ICICLE Core is found under [`<project_root>/icicle`](https://github.com/ingonyama-zk/icicle/tree/main/icicle). To build and run the tests first:
 
-```
+```sh
 cd icicle
 ```
 
 We are going to compile ICICLE for a specific curve
 
-```
+```sh
 mkdir -p build
 cmake -S . -B build -DCURVE=bn254 -DBUILD_TESTS=ON
 cmake --build build
 ```
 
-`-DBUILD_TESTS=ON` compiles the tests, without this flag `ctest` wont work.
+`-DBUILD_TESTS=ON` compiles the tests, without this flag `ctest` won't work.
 `-DCURVE=bn254` tells the compiler which curve to build. You can find a list of supported curves [here](https://github.com/ingonyama-zk/icicle/tree/main/icicle/curves).
 
 The output in `build` folder should include the static libraries for the compiled curve.
 
 :::info
-Make sure to only use `-DBUILD_TESTS=ON` for running test as the archive output will only be available when `-DBUILD_TESTS=ON` is not supplied.
+
+Make sure to only use `-DBUILD_TESTS=ON` for running tests as the archive output will only be available when `-DBUILD_TESTS=ON` is not supplied.
+
 :::
 
 To run the test
 
-```
+```sh
 cd build
 ctest
 ```
@@ -137,13 +139,13 @@ Similar to ICICLE Core here we also have to compile per curve.
 
 Lets compile curve `bn254`
 
-```
+```sh
 cd wrappers/rust/icicle-curves/icicle-bn254
 ```
 
 Now lets build our library
 
-```
+```sh
 cargo build --release
 ```
 
@@ -151,7 +153,7 @@ This may take a couple of minutes since we are compiling both the CUDA and Rust 
 
 To run the tests
 
-```
+```sh
 cargo test -- --test-threads=1
 ```
 
@@ -159,7 +161,7 @@ cargo test -- --test-threads=1
 
 We also include some benchmarks
 
-```
+```sh
 cargo bench
 ```
 
@@ -173,41 +175,43 @@ ICICLE examples can be found [here](https://github.com/ingonyama-zk/icicle-examp
 
 In each example directory, ZK-container files are located in a subdirectory `.devcontainer`.
 
-- example-name/
-  - .devcontainer/
-    - Dockerfile
-    - devcontainer.json
+```sh
+msm/
+├── .devcontainer
+   ├── devcontainer.json
+   └── Dockerfile
+```
 
 Lets run one of our C++ examples, in this case the [MSM example](https://github.com/ingonyama-zk/icicle-examples/blob/main/c%2B%2B/msm/example.cu).
 
 Clone the repository
 
-```
+```sh
 git clone https://github.com/ingonyama-zk/icicle-examples.git
 cd icicle-examples
 ```
 
 Enter the test directory
 
-```
+```sh
 cd c++/msm
 ```
 
 Now lets build our docker file and run the test inside it. Make sure you have installed the [optional prerequisites](#optional-prerequisites).
 
-```
+```sh
 docker build -t icicle-example-msm -f .devcontainer/Dockerfile .
 ```
 
 Lets start and enter the container
 
-```
+```sh
 docker run -it --rm --gpus all -v .:/icicle-example icicle-example-msm
 ```
 
 to run the example
 
-```
+```sh
 rm -rf build
 mkdir -p build
 cmake -S . -B build
@@ -233,13 +237,13 @@ Lets review the Golang bindings since its a pretty verbose example (compared to 
 import "C"
 
 func main() {
-    // Now you can call the C functions from the ICICLE libraries.
-    // Note that C function calls are prefixed with 'C.' in Go code.
+  // Now you can call the C functions from the ICICLE libraries.
+  // Note that C function calls are prefixed with 'C.' in Go code.
 
-    out := (*C.BN254_projective_t)(unsafe.Pointer(p))
-	in := (*C.BN254_affine_t)(unsafe.Pointer(affine))
+  out := (*C.BN254_projective_t)(unsafe.Pointer(p))
+  in := (*C.BN254_affine_t)(unsafe.Pointer(affine))
 
-	C.projective_from_affine_bn254(out, in)
+  C.projective_from_affine_bn254(out, in)
 }
 ```
 

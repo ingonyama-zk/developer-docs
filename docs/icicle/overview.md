@@ -37,7 +37,7 @@ If none of these options suit your needs, contact us on [telegram](https://t.me/
 
 ## What can you do with ICICLE?
 
-[ICICLE](https://github.com/ingonyama-zk/icicle) can be used in the same way you would use any other cryptography library. Over the past couple of months developing and integrating ICICLE into many systems, we found a couple use case catagories:
+[ICICLE](https://github.com/ingonyama-zk/icicle) can be used in the same way you would use any other cryptography library. Over the past couple of months developing and integrating ICICLE into many systems, we found a couple use case categories:
 
 ### Circuit developers
 
