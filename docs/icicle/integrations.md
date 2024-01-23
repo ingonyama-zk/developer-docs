@@ -37,7 +37,7 @@ Currently ICICLE has been merged to Gnark [master branch](https://github.com/Con
 
 :::
 
-Make sure your golang circuit project has `gnark` as a dependency. And make sure that you are using the master branch for now.
+Make sure your golang circuit project has `gnark` as a dependency and that you are using the master branch for now.
 
 ```
 go get 	github.com/consensys/gnark@master
