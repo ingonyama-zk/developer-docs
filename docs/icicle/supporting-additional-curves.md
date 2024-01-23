@@ -46,7 +46,8 @@ Create a new folder named `icicle-<curve_name>` under the [rust wrappers folder]
 
 ```
 └── rust
-    ├── icicle-<curve_name>/
+    ├── icicle-curves
+        ├── icicle-<curve_name>
     │   │   ├── Cargo.toml
     │   │   ├── build.rs
     │   │   └── src/
