@@ -21,7 +21,7 @@ At Ingonyama we are interested in accelerating the progress of ZK and cryptograp
 
 This is a great way to get started with ICICLE instantly. Google Colab offers free GPU access the down side being that the GPU doesn't have a lot of RAM but it should be enough for experimenting and even prototyping with ICICLE.
 
-For an extensive guide on how to setup Google Colab with ICICLE refer to [this article](https://github.com/gkigiermo/rust-cuda-colab).
+For an extensive guide on how to setup Google Colab with ICICLE refer to [this article](./colab-instructions.md).
 
 If none of these options are appropriate for you reach out to us on [telegram](https://t.me/RealElan) we will do our best to help you.
 
