@@ -33,7 +33,7 @@ Here we cover how a developer can run existing circuits on ICICLE integrated pro
 
 :::info
 
-Currently ICICLE has been merged to Gnark [master branch](https://github.com/Consensys/gnark), however a the [latest release](https://github.com/Consensys/gnark/releases/tag/v0.9.1) is from October 2023.
+Currently ICICLE has been merged to Gnark [master branch](https://github.com/Consensys/gnark), however the [latest release](https://github.com/Consensys/gnark/releases/tag/v0.9.1) is from October 2023.
 
 :::
 
