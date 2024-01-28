@@ -101,7 +101,7 @@ Let's run a test!
 Navigate to icicle/wrappers/rust/icicle-curves/icicle-bn254 and run cargo test:
 
 ```sh
-%cd icicle/wrappers/rust/icicle-curves/icicle-bn254/
+%cd wrappers/rust/icicle-curves/icicle-bn254/
 !cargo test --release
 ```
 
