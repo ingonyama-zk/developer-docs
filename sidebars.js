@@ -21,7 +21,7 @@ module.exports = {
         },
         {
           type: "doc",
-          label: "Official Integrations",
+          label: "ICICLE Provers",
           id: "icicle/integrations"
         },
         {

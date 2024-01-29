@@ -7,11 +7,11 @@ As Colab is able to interact with shell commands, a user can also install a fram
 
 First thing to do in a notebook is to set the runtime type to a T4 GPU.
 
-* in the upper corner click on the dropdown menu and select "change runtime type"
+- in the upper corner click on the dropdown menu and select "change runtime type"
 
 ![Change runtime](../../static/img/colab_change_runtime.png)
 
-* In the window select "T4 GPU" and press Save
+- In the window select "T4 GPU" and press Save
 
 ![T4 GPU](../../static/img/t4_gpu.png)
 
@@ -60,7 +60,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 cmake version 3.27.9
 
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
-Wed Jan 17 13:10:18 2024       
+Wed Jan 17 13:10:18 2024
 +---------------------------------------------------------------------------------------+
 | NVIDIA-SMI 535.104.05             Driver Version: 535.104.05   CUDA Version: 12.2     |
 |-----------------------------------------+----------------------+----------------------+
@@ -72,7 +72,7 @@ Wed Jan 17 13:10:18 2024
 | N/A   39C    P8               9W /  70W |      0MiB / 15360MiB |      0%      Default |
 |                                         |                      |                  N/A |
 +-----------------------------------------+----------------------+----------------------+
-                                                                                         
+
 +---------------------------------------------------------------------------------------+
 | Processes:                                                                            |
 |  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
