@@ -4,7 +4,7 @@
 
 [ICICLE](https://github.com/ingonyama-zk/icicle) is a cryptography library for ZK using GPUs. ICICLE implements blazing fast cryptographic primitives such as EC operations, MSM, NTT, Poseidon hash and more on GPU.
 
-ICICLE allows developers with minimal GPU experience to effortlessly accelerate there ZK application; from our experiments, even the most naive implementation may yield 10X improvement in proving times.
+ICICLE allows developers with minimal GPU experience to effortlessly accelerate their ZK application; from our experiments, even the most naive implementation may yield 10X improvement in proving times.
 
 ICICLE has been used by many leading ZK companies such as [Celer Network](https://github.com/celer-network), [Gnark](https://github.com/Consensys/gnark) and others to accelerate their ZK proving pipeline.
 
@@ -19,7 +19,7 @@ At Ingonyama we are interested in accelerating the progress of ZK and cryptograp
 
 ### Google Colab
 
-This is a great way to get started with ICICLE instantly. Google Colab offers free GPU access the down side being that the GPU doesn't have a lot of RAM but it should be enough for experimenting and even prototyping with ICICLE.
+This is a great way to get started with ICICLE instantly. Google Colab offers free GPU access to a NVIDIA T4 instance, it's acquired with 16 GB of memory which should be enough for experimenting and even prototyping with ICICLE.
 
 For an extensive guide on how to setup Google Colab with ICICLE refer to [this article](./colab-instructions.md).
 
@@ -37,7 +37,7 @@ If none of these options suit your needs, contact us on [telegram](https://t.me/
 
 ## What can you do with ICICLE?
 
-[ICICLE](https://github.com/ingonyama-zk/icicle) can be used in the same way you would use any other cryptography library. Over the past couple of months developing and integrating ICICLE into many systems, we found a couple use case categories:
+[ICICLE](https://github.com/ingonyama-zk/icicle) can be used in the same way you would use any other cryptography library. While developing and integrating ICICLE into many proof systems, we found some use case categories:
 
 ### Circuit developers
 
