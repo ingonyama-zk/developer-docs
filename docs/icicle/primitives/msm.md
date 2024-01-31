@@ -40,7 +40,7 @@ ICICLE MSM also supports two different modes
 
 Batch MSM allows you to run many MSMs with a single API call, Single MSM will launch a single MSM computation.
 
-You dont need to do anything special to toggle between batch or single MSM.
+You don't need to do anything special to toggle between batch or single MSM.
 
 ```rust
 ...
