@@ -1,6 +1,6 @@
 # MSM
 
-MSM (Multi scalar multiplication) is a important primitive in ZK protocols.
+MSM (Multi scalar multiplication) is an important primitive in ZK protocols.
 
 ### Using MSM
 
