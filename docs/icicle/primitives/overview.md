@@ -13,7 +13,5 @@ This section of the documentation is dedicated to the ICICLE primitives, we will
 - ECNTT
     - Forward ECNTT
     - Inverse NTT
-- Hashing algorithms
-    - [Poseidon hash](./posedion)
 - Scalar Vector Multiplication
 - Point Vector Multiplication

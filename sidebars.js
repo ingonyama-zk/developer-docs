@@ -45,11 +45,6 @@ module.exports = {
           items: [
             {
               type: "doc",
-              label: "Poseidon Hash",
-              id: "icicle/primitives/posedion",
-            },
-            {
-              type: "doc",
               label: "MSM",
               id: "icicle/primitives/msm",
             },
