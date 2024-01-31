@@ -16,7 +16,9 @@ In most scenarios you should be using Bucket accumulation as its a more parallel
 The exception being a large batch of smaller MSMs.
 
 ```rust
-...
+.
+.
+.
 
 let mut cfg_bls12377 = msm::get_default_msm_config::<BLS12377CurveCfg>();
 
