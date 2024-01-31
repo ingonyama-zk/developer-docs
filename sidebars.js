@@ -35,6 +35,22 @@ module.exports = {
           id: "icicle/rust-bindings",
         },
         {
+          type: "category",
+          label: "Primitives",
+          link: {
+            type: `doc`,
+            id: 'icicle/primitives/overview',
+          },
+          collapsed: true,
+          items: [
+            {
+              type: "doc",
+              label: "MSM",
+              id: "icicle/primitives/msm",
+            },
+          ],
+        },
+        {
           type: "doc",
           label: "Supporting additional curves",
           id: "icicle/supporting-additional-curves",
