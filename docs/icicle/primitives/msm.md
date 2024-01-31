@@ -45,3 +45,7 @@ msm::msm(&scalars, &points, &cfg, &mut msm_results).unwrap();
 ```
 
 You simply call `msm::msm`, if `msm_results` is a single result it will run in single MSM mode, if you are expecting many results MSM will run in batch mode.
+
+### Benchmarks
+
+TODO
