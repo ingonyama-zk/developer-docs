@@ -13,5 +13,5 @@ This section of the documentation is dedicated to the ICICLE primitives, we will
 - ECNTT
     - Forward ECNTT
     - Inverse NTT
-- Scalar Vector Multiplication
-- Point Vector Multiplication
+- Scalar Vector Addition/Subtraction/Multiplication
+- Point Vector Addition/Subtraction/Multiplication
