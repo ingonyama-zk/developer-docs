@@ -112,15 +112,32 @@ Single MSM mode should be used when batching isn't possible or when you have to 
 
 ### How do I toggle between MSM modes?
 
-You simply call `msm::msm`, if `msm_results` is a single result it will run in single MSM mode, if you are expecting many results MSM will run in batch mode, using the number of expected results in `msm_results` as the `batch_size`, the scalars and points will be split into groups based on `batch_size` and processed in parallel.
+Toggling between MSM modes occurrences automatically, based on the number of results you are expecting from the `msm::msm` function. If you are expecting an array of `msm_results` ICICLE will automatically split `scalars` and `points` into equal parts and run them as multiple MSMs in parallel.
 
 ```rust
 ...
 
+let mut msm_result: HostOrDeviceSlice<'_, G1Projective> = HostOrDeviceSlice::cuda_malloc(1).unwrap();
+msm::msm(&scalars, &points, &cfg, &mut msm_result).unwrap();
+
+...
+```
+
+In the example above we allocate a single expected result, the MSM method will interpret this as `batch_size=1` and run it as a single MSM.
+
+
+In the next example we see that we are expecting 10 results, this would set `batch_size=10` and run 10 MSMs in batch.
+
+```rust
+...
+
+let mut msm_results: HostOrDeviceSlice<'_, G1Projective> = HostOrDeviceSlice::cuda_malloc(10).unwrap();
 msm::msm(&scalars, &points, &cfg, &mut msm_results).unwrap();
 
 ...
 ```
+
+Here is a [reference](https://github.com/ingonyama-zk/icicle/blob/77a7613aa21961030e4e12bf1c9a78a2dadb2518/wrappers/rust/icicle-core/src/msm/mod.rs#L108) to the code which automatically sets the batch size. For more MSM examples have a look [here](https://github.com/ingonyama-zk/icicle/blob/77a7613aa21961030e4e12bf1c9a78a2dadb2518/examples/rust/msm/src/main.rs#L1).
 
 
 ## Support for G2 group
