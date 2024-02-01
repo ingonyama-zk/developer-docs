@@ -107,11 +107,11 @@ Batch MSM allows you to run many MSMs with a single API call, Single MSM will la
 
 This decision is highly dependent on your use case and design. However if your design allows for it using batch mode can significantly improve efficiency. Batch processing allows you to perform multiple MSM leveraging parallel processing capabilities of the GPU.
 
-Single MSM mode should be used when batching isnt possible or when you have to run a single MSM.
+Single MSM mode should be used when batching isn't possible or when you have to run a single MSM.
 
 ### How do I toggle between MSM modes?
 
-You don't need to do anything special to toggle between batch or single MSM.
+You simply call `msm::msm`, if `msm_results` is a single result it will run in single MSM mode, if you are expecting many results MSM will run in batch mode, using the number of expected results in `msm_results` as the `batch_size`, the scalars and points will be split into groups based on `batch_size` and processed in parallel.
 
 ```rust
 ...
@@ -121,7 +121,7 @@ msm::msm(&scalars, &points, &cfg, &mut msm_results).unwrap();
 ...
 ```
 
-You simply call `msm::msm`, if `msm_results` is a single result it will run in single MSM mode, if you are expecting many results MSM will run in batch mode, using the number of expected results as the `batch_size`, the scalar and points will be split into groups based on `batch_size` and processed in parallel.
+
 
 
 #### support for G2 group
