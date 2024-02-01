@@ -104,7 +104,7 @@ ICICLE MSM also supports two different modes `Batch MSM` and `Single MSM`
 
 Batch MSM allows you to run many MSMs with a single API call, Single MSM will launch a single MSM computation.
 
-### Which mode should I use ?
+### Which mode should I use?
 
 This decision is highly dependent on your use case and design. However, if your design allows for it, using batch mode can significantly improve efficiency. Batch processing allows you to perform multiple MSMs leveraging the parallel processing capabilities of GPUs.
 
