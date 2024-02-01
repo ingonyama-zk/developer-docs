@@ -7,11 +7,3 @@ This section of the documentation is dedicated to the ICICLE primitives, we will
 
 
 - [MSM](./msm)
-- NTT
-    - Forward NTT
-    - Inverse NTT
-- ECNTT
-    - Forward ECNTT
-    - Inverse NTT
-- Scalar Vector Addition/Subtraction/Multiplication
-- Point Vector Addition/Subtraction/Multiplication
