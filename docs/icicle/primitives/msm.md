@@ -53,7 +53,7 @@ You can learn more about how MSMs work from this [video](https://www.youtube.com
 
 ## Supported curves
 
-MSM supports all curves;
+MSM supports the following curves:
 
 `bls12-377`, `bls12-381`, `bn-254`, `bw6-761`
 
