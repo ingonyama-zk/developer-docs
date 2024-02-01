@@ -43,7 +43,7 @@ $a_0, \ldots, a_n$ - Scalars
 
 $MSM(a, G) \in G$ - a single EC (elliptic curve point) point
 
-Or in more simple terms MSM is the sum of scalar and EC point multiplications, we can learn from this definition as well that the core operations occurring are Modular Multiplication and Elliptic curve point addition. Since each multiplication can be computed independently and then the products need to be summed, this makes MSM inherently extremely parallelizable.
+In words, MSM is the sum of scalar and EC point multiplications. We can see from this definition that the core operations occurring are Modular Multiplication and Elliptic curve point addition. Each multiplication can be computed independently and then the products are summed, making MSM inherently parallelizable.
 
 Accelerating MSM is crucial to a ZK protocol's performance due to the [large percent of run time](https://hackmd.io/@0xMonia/SkQ6-oRz3#Hardware-acceleration-in-action) they take when generating proofs.
 
