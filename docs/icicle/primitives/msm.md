@@ -122,9 +122,7 @@ msm::msm(&scalars, &points, &cfg, &mut msm_results).unwrap();
 ```
 
 
-
-
-#### support for G2 group
+## support for G2 group
 
 MSM also supports G2 group. 
 
@@ -139,6 +137,8 @@ let mut g2_msm_results: HostOrDeviceSlice<'_, G2Projective> = HostOrDeviceSlice:
 let mut g2_cfg = msm::get_default_msm_config::<G2CurveCfg>();
 
 msm::msm(&scalars, &g2_points, &g2_cfg, &mut g2_msm_results).unwrap();
+
+...
 ```
 
 Here you can [find an example](https://github.com/ingonyama-zk/icicle/blob/5a96f9937d0a7176d88c766bd3ef2062b0c26c37/examples/rust/msm/src/main.rs#L114) of MSM on G2 Points.
