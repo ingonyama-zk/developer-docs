@@ -44,7 +44,7 @@ $a_0, \ldots, a_n$ - Scalars
 
 $MSM(a, G) \in G$ - a single EC (elliptic curve point) point
 
-Accelerating MSM is crucial to ZK protocol performance due to the [large percent of run time](https://hackmd.io/@0xMonia/SkQ6-oRz3#Hardware-acceleration-in-action) they take up when generating proofs.
+Accelerating MSM is crucial to a ZK protocol performance due to the [large percent of run time](https://hackmd.io/@0xMonia/SkQ6-oRz3#Hardware-acceleration-in-action) they take up when generating proofs.
 
 You can learn more about how MSMs work from this [video](https://www.youtube.com/watch?v=Bl5mQA7UL2I) and from this resource list on [Ingopedia](https://www.ingonyama.com/ingopedia/msm).
 
@@ -121,7 +121,7 @@ msm::msm(&scalars, &points, &cfg, &mut msm_results).unwrap();
 ...
 ```
 
-You simply call `msm::msm`, if `msm_results` is a single result it will run in single MSM mode, if you are expecting many results MSM will run in batch mode, using the number of expected results as the `batch_size`.
+You simply call `msm::msm`, if `msm_results` is a single result it will run in single MSM mode, if you are expecting many results MSM will run in batch mode, using the number of expected results as the `batch_size`, the scalar and points will be split into groups based on `batch_size` and processed in parallel.
 
 
 #### support for G2 group
