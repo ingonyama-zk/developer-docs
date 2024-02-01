@@ -47,7 +47,7 @@ Or in more simple terms MSM is the sum of scalar and EC point multiplications, w
 
 Accelerating MSM is crucial to a ZK protocol performance due to the [large percent of run time](https://hackmd.io/@0xMonia/SkQ6-oRz3#Hardware-acceleration-in-action) they take up when generating proofs.
 
-You can learn more about how MSMs work from this [video](https://www.youtube.com/watch?v=Bl5mQA7UL2I) and from this resource list on [Ingopedia](https://www.ingonyama.com/ingopedia/msm).
+You can learn more about how MSMs work from this [video](https://www.youtube.com/watch?v=Bl5mQA7UL2I) and from our resource list on [Ingopedia](https://www.ingonyama.com/ingopedia/msm).
 
 # Using MSM
 
