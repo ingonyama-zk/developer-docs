@@ -35,7 +35,6 @@ MSM stands for Multi scalar multiplication, its defined as:
   </msub>
 </math>
 
-
 Where
 
 $G_j \in G$ - points from an Elliptic Curve group.
@@ -43,6 +42,8 @@ $G_j \in G$ - points from an Elliptic Curve group.
 $a_0, \ldots, a_n$ - Scalars
 
 $MSM(a, G) \in G$ - a single EC (elliptic curve point) point
+
+Or in more simple terms MSM is the sum of scalar and EC point multiplications, we can learn from this definition as well that the core operations occurring are Modular Multiplication and Elliptic curve point addition. Since each multiplication can be computed independently and then the products need to be summed, this makes MSM inherently extremely parallelizable.
 
 Accelerating MSM is crucial to a ZK protocol performance due to the [large percent of run time](https://hackmd.io/@0xMonia/SkQ6-oRz3#Hardware-acceleration-in-action) they take up when generating proofs.
 
