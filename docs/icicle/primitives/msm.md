@@ -122,7 +122,7 @@ msm::msm(&scalars, &points, &cfg, &mut msm_results).unwrap();
 ```
 
 
-## support for G2 group
+## Support for G2 group
 
 MSM also supports G2 group. 
 
