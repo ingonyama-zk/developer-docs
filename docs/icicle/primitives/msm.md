@@ -112,7 +112,7 @@ Single MSM mode should be used when batching isn't possible or when you have to 
 
 ### How do I toggle between MSM modes?
 
-Toggling between MSM modes occurrences automatically, based on the number of results you are expecting from the `msm::msm` function. If you are expecting an array of `msm_results` ICICLE will automatically split `scalars` and `points` into equal parts and run them as multiple MSMs in parallel.
+Toggling between MSM modes occurs automatically based on the number of results you are expecting from the `msm::msm` function. If you are expecting an array of `msm_results`, ICICLE will automatically split `scalars` and `points` into equal parts and run them as multiple MSMs in parallel.
 
 ```rust
 ...
