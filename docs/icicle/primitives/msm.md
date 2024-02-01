@@ -123,7 +123,7 @@ msm::msm(&scalars, &points, &cfg, &mut msm_result).unwrap();
 ...
 ```
 
-In the example above we allocate a single expected result, the MSM method will interpret this as `batch_size=1` and run it as a single MSM.
+In the example above we allocate a single expected result which the MSM method will interpret as `batch_size=1` and run a single MSM.
 
 
 In the next example we see that we are expecting 10 results, this would set `batch_size=10` and run 10 MSMs in batch.
