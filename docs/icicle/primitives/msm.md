@@ -106,7 +106,7 @@ Batch MSM allows you to run many MSMs with a single API call, Single MSM will la
 
 ### Which mode should I use ?
 
-This decision is highly dependent on your use case and design. However if your design allows for it using batch mode can significantly improve efficiency. Batch processing allows you to perform multiple MSM leveraging parallel processing capabilities of the GPU.
+This decision is highly dependent on your use case and design. However, if your design allows for it, using batch mode can significantly improve efficiency. Batch processing allows you to perform multiple MSMs leveraging the parallel processing capabilities of GPUs.
 
 Single MSM mode should be used when batching isn't possible or when you have to run a single MSM.
 
