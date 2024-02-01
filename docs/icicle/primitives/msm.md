@@ -80,7 +80,7 @@ Large Triangle Accumulation is a method for optimizing MSM which focuses on redu
 The Large Triangle Accumulation algorithm is more sequential in nature, as it builds upon each step sequentially (accumulating sums and then performing doubling). This structure can make it less suitable for parallelization but potentially more efficient for a <b>large batch of smaller MSM computations</b>.
 
 
-### How do I toggle between the supported algorithms ?
+### How do I toggle between the supported algorithms?
 
 When creating your MSM Config you may state which algorithm you wish to use. `is_big_triangle=true` will activate Large triangle accumulation and `is_big_triangle=false` will activate Bucket accumulation.
 
