@@ -169,6 +169,7 @@ let ctx = get_default_device_context();
     )
     .unwrap();
 ```
+For more examples using different configurations refer here.
 
 ### Benchmarks 
 
@@ -176,6 +177,36 @@ TODO
 
 
 ## The Tree Builder
+
+The tree builder allows you to build Merkle trees using the Poseidon Hash. 
+
+You can define both the tree's `height` and its `arity`. The tree `height` determines the number of layers in the tree, including the root and the leaf layer. The `arity` determines how many children each internal node can have.
+
+```rust
+let height = 20;
+let arity = 2;
+let leaves = vec![F::one(); 1 << (height - 1)];
+let mut digests = vec![F::zero(); merkle_tree_digests_len(height, arity)];
+
+let mut leaves_slice = HostOrDeviceSlice::on_host(leaves);
+
+let ctx = get_default_device_context();
+let constants = load_optimized_poseidon_constants::<F>(arity, &ctx).unwrap()
+
+let mut config = TreeBuilderConfig::default();
+config.keep_rows = 1;
+build_poseidon_merkle_tree::<F>(&mut leaves_slice, &mut digests, height, arity, &constants, &config).unwrap();
+
+println!("Root: {:?}", digests[0..1][0]);
+```
+
+Similar to Poseidon Hash, you can also configure the Tree Builder `TreeBuilderConfig::default()`
+
+- `keep_rows`: The number of rows which will be written to output, 0 will write all rows.
+- `are_inputs_on_device`: Have the inputs been loaded to device memory ?
+- `is_async`: Should the TreeBuilder run asynchronously? `False` will block the current CPU thread. `True` will require you call `cudaStreamSynchronize` or `cudaDeviceSynchronize` to retrieve the result.
+
+### Memory considerations
 
 ### Benchmarks 
 
