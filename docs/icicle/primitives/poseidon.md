@@ -45,7 +45,7 @@ The user of a Poseidon hash often can choose how many partial or full rounds he 
 
 ## Using Poseidon Hash
 
-ICICLE Poseidon hash is implemented for GPU and parallelization is preformed for each element of the state rather than for each state.
+ICICLE Poseidon hash is implemented for GPU and parallelization is performed for each element of the state rather than for each state.
 
 ### Supported API
 
@@ -141,7 +141,7 @@ impl<'a> Default for PoseidonConfig<'a> {
 }
 ```
 
-In the example above `load_optimized_poseidon_constants::<F>(arity, &ctx).unwrap();` is used which wil load the correct constants based on arity and curve. Its possible to [generate](#constants) your own constants and load them.
+In the example above `load_optimized_poseidon_constants::<F>(arity, &ctx).unwrap();` is used which will load the correct constants based on arity and curve. Its possible to [generate](#constants) your own constants and load them.
 
 ```rust
 let ctx = get_default_device_context();
