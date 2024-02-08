@@ -17,3 +17,16 @@ where:
 The NTT is particularly useful because it enables efficient polynomial multiplication under modulo arithmetic, crucial for algorithms in cryptographic protocols, and other areas requiring fast modular arithmetic operations. 
 
 There exists also INTT which is the inverse operation of NTT. INTT can take as input an output sequence of integers from an NTT and reconstruct the original sequence.
+
+
+# Using NTT
+
+## Supported curves
+
+NTT supports the following curves:
+
+`bls12-377`, `bls12-381`, `bn-254`, `bw6-761`
+
+## Supported algorithms
+
+Our NTT implementation supports two algorithms `` and ``.
