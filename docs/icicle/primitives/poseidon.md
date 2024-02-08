@@ -75,7 +75,7 @@ You will then need to modify the following values before running the script.
 
 ```python
 # Modify these
-arity = 11 # we support arity arity > 0, but tested primarily with the most common ones 2, 4, 8 and 11.
+arity = 11 # we support arity 2, 4, 8 and 11.
 p = 0x73EDA753299D7D483339D80809A1D80553BDA402FFFE5BFEFFFFFFFF00000001 # bls12-381
 # p = 0x12ab655e9a2ca55660b44d1e5c37b00159aa76fed00000010a11800000000001 # bls12-377
 # p = 0x30644e72e131a029b85045b68181585d2833e84879b9709143e1f593f0000001 # bn254
@@ -93,6 +93,86 @@ primitive_element = 7 # bls12-381
 ```
 
 We only support `alpha = 5` so if you want to use another alpha for SBox please reach out on discord or open a github issue.
+
+### Rust API
+
+This is the most basic way to use the Poseidon API.
+
+```rust
+let test_size = 1 << 10;
+let arity = 2u32;
+let ctx = get_default_device_context();
+let constants = load_optimized_poseidon_constants::<F>(arity, &ctx).unwrap();
+let config = PoseidonConfig::default();
+
+let inputs = vec![F::one(); test_size * arity as usize];
+let outputs = vec![F::zero(); test_size];
+let mut input_slice = HostOrDeviceSlice::on_host(inputs);
+let mut output_slice = HostOrDeviceSlice::on_host(outputs);
+
+poseidon_hash_many::<F>(
+    &mut input_slice,
+    &mut output_slice,
+    test_size as u32,
+    arity as u32,
+    &constants,
+    &config,
+)
+.unwrap();
+```
+
+The `PoseidonConfig::default()` can be modified, by default the inputs and outputs are set to be on `Host` for example.
+
+
+```
+impl<'a> Default for PoseidonConfig<'a> {
+    fn default() -> Self {
+        let ctx = get_default_device_context();
+        Self {
+            ctx,
+            are_inputs_on_device: false,
+            are_outputs_on_device: false,
+            input_is_a_state: false,
+            aligned: false,
+            loop_state: false,
+            is_async: false,
+        }
+    }
+}
+```
+
+In the example above `load_optimized_poseidon_constants::<F>(arity, &ctx).unwrap();` is used which wil load the correct constants based on arity and curve. Its possible to [generate](#constants) your own constants and load them.
+
+```rust
+let ctx = get_default_device_context();
+    let cargo_manifest_dir = env!("CARGO_MANIFEST_DIR");
+    let constants_file = PathBuf::from(cargo_manifest_dir)
+        .join("tests")
+        .join(format!("{}_constants.bin", field_prefix));
+    let mut constants_buf = vec![];
+    File::open(constants_file)
+        .unwrap()
+        .read_to_end(&mut constants_buf)
+        .unwrap();
+
+    let mut custom_constants = vec![];
+    for chunk in constants_buf.chunks(field_bytes) {
+        custom_constants.push(F::from_bytes_le(chunk));
+    }
+
+    let custom_constants = create_optimized_poseidon_constants::<F>(
+        arity as u32,
+        &ctx,
+        full_rounds_half,
+        partial_rounds,
+        &mut custom_constants,
+    )
+    .unwrap();
+```
+
+### Benchmarks 
+
+TODO
 
 
 ## The Tree Builder
