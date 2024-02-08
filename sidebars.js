@@ -48,6 +48,11 @@ module.exports = {
               label: "MSM",
               id: "icicle/primitives/msm",
             },
+            {
+              type: "doc",
+              label: "NTT",
+              id: "icicle/primitives/ntt",
+            },
           ],
         },
         {
