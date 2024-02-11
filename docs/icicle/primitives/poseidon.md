@@ -2,6 +2,8 @@
 
 Poseidon hash is a popular hash in the ZK ecosystem primarily because its optimized to work over large prime fields, a common setting for ZK proofs, thereby minimizing the number of multiplicative operations required.
 
+Poseidon hash function has also been specifically designed to be efficient when implemented within ZK circuits, Poseidon hash uses far less constraints compared to other hash functions like Keccak or SHA-256 in the context of ZK circuits.
+
 Poseidon hash has been used in many popular ZK protocols such as Filecoin and [Plonk](https://drive.google.com/file/d/1bZZvKMQHaZGA4L9eZhupQLyGINkkFG_b/view?usp=drive_open).
 
 Our implementation of [Poseidon hash](https://eprint.iacr.org/2019/458.pdf) is implemented  in accordance with the optimized [Filecoin version](https://spec.filecoin.io/algorithms/crypto/poseidon/).
@@ -46,6 +48,9 @@ The user of a Poseidon hash often can choose how many partial or full rounds he 
 ## Using Poseidon Hash
 
 ICICLE Poseidon hash is implemented for GPU and parallelization is performed for each element of the state rather than for each state.
+What that means is we calculate multiple hash-sums over multiple pre-images in parallel, rather than going block by block over the input vector.
+
+So for Poseidon of arity 2 and input of size 1024 * 2, we would expect 1024 elements of output. Which means each block would be of size 2 and that would result in 1024 Poseidon hashes being preformed.
 
 ### Supported API
 
@@ -68,7 +73,7 @@ If you wish to generate your own constants you can use our python script which c
 Prerequisites:
 - Install python 3
 - `pip install poseidon-hash`
-- `pip install galois`
+- `pip install galois==0.3.7`
 - `pip install numpy`
 
 You will then need to modify the following values before running the script.
