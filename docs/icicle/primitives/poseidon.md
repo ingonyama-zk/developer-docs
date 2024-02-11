@@ -1,18 +1,18 @@
 # Poseidon
 
-Poseidon hash is a popular hash in the ZK ecosystem primarily because its optimized to work over large prime fields, a common setting for ZK proofs, thereby minimizing the number of multiplicative operations required.
+[Poseidon](https://eprint.iacr.org/2019/458.pdf) is a popular hash in the ZK ecosystem primarily because its optimized to work over large prime fields, a common setting for ZK proofs, thereby minimizing the number of multiplicative operations required.
 
-Poseidon hash function has also been specifically designed to be efficient when implemented within ZK circuits, Poseidon hash uses far less constraints compared to other hash functions like Keccak or SHA-256 in the context of ZK circuits.
+Poseidon has also been specifically designed to be efficient when implemented within ZK circuits, Poseidon uses far less constraints compared to other hash functions like Keccak or SHA-256 in the context of ZK circuits.
 
-Poseidon hash has been used in many popular ZK protocols such as Filecoin and [Plonk](https://drive.google.com/file/d/1bZZvKMQHaZGA4L9eZhupQLyGINkkFG_b/view?usp=drive_open).
+Poseidon has been used in many popular ZK protocols such as Filecoin and [Plonk](https://drive.google.com/file/d/1bZZvKMQHaZGA4L9eZhupQLyGINkkFG_b/view?usp=drive_open).
 
-Our implementation of [Poseidon hash](https://eprint.iacr.org/2019/458.pdf) is implemented  in accordance with the optimized [Filecoin version](https://spec.filecoin.io/algorithms/crypto/poseidon/).
+Our implementation of Poseidon is implemented in accordance with the optimized [Filecoin version](https://spec.filecoin.io/algorithms/crypto/poseidon/).
 
-Let understand how Poseidon hash works.
+Let understand how Poseidon works.
 
 ### Initialization
 
-Poseidon starts with the initialization of its internal state, which is composed of the input elements and some pregenerated constants. An initial round constant is added to each element of the internal state. This is part of the initialization to ensure the state is properly mixed from the outset.
+Poseidon starts with the initialization of its internal state, which is composed of the input elements and some pregenerated constants. An initial round constant is added to each element of the internal state. Adding The round constants ensure the state is properly mixed from the outset.
 
 This is done to prevent collions and to prevent certain cryptographic attacks by insuring that the internal state is sufficiently mixed and unpredictable,
 
@@ -28,7 +28,7 @@ First full rounds => apply SBox and Round constants => partial rounds => Last fu
 
 ![Alt text](image-1.png)
 
-**Uniform Application of S-Box:** In full rounds, the S-box (a non-linear transformation) is applied uniformly to every element of the hash function's internal state. This ensures a high degree of mixing and diffusion, contributing to the hash function's security. The S-box involves raising each element of the state to a certain power denoted by `α` is a member of the finite field defined by the prime `p`, `α` can be selected by the user.
+**Uniform Application of S-Box:** In full rounds, the S-box (a non-linear transformation) is applied uniformly to every element of the hash function's internal state. This ensures a high degree of mixing and diffusion, contributing to the hash function's security. The functions S-box involves raising each element of the state to a certain power denoted by `α` a member of the finite field defined by the prime `p`, `α` can be different depending on the the implementation and user configuration.
 
 **Linear Transformation:** After applying the S-box, a linear transformation is performed on the state. This involves multiplying the state by a MDS (Maximum Distance Separable) Matrix. which further diffuses the transformations applied by the S-box across the entire state.
 
@@ -41,13 +41,13 @@ First full rounds => apply SBox and Round constants => partial rounds => Last fu
 **Linear Transformation and Round Constants:** A linear transformation is performed, and round constants are added. However, the linear transformation in partial rounds can be designed to be less computationally intensive (this is done by using a sparse matrix) than in full rounds, further optimizing the function's efficiency.
 
 
-The user of a Poseidon hash often can choose how many partial or full rounds he wishes to apply, more full rounds will increase security and degrade performance. The choice and balance depend highly on the use case.
+The user of Poseidon often can choose how many partial or full rounds he wishes to apply, more full rounds will increase security and degrade performance. The choice and balance depend highly on the use case.
 
 ![Alt text](image-2.png)
 
-## Using Poseidon Hash
+## Using Poseidon
 
-ICICLE Poseidon hash is implemented for GPU and parallelization is performed for each element of the state rather than for each state.
+ICICLE Poseidon is implemented for GPU and parallelization is performed for each element of the state rather than for each state.
 What that means is we calculate multiple hash-sums over multiple pre-images in parallel, rather than going block by block over the input vector.
 
 So for Poseidon of arity 2 and input of size 1024 * 2, we would expect 1024 elements of output. Which means each block would be of size 2 and that would result in 1024 Poseidon hashes being preformed.
@@ -176,14 +176,9 @@ let ctx = get_default_device_context();
 ```
 For more examples using different configurations refer here.
 
-### Benchmarks 
-
-TODO
-
-
 ## The Tree Builder
 
-The tree builder allows you to build Merkle trees using the Poseidon Hash. 
+The tree builder allows you to build Merkle trees using Poseidon. 
 
 You can define both the tree's `height` and its `arity`. The tree `height` determines the number of layers in the tree, including the root and the leaf layer. The `arity` determines how many children each internal node can have.
 
@@ -205,7 +200,7 @@ build_poseidon_merkle_tree::<F>(&mut leaves_slice, &mut digests, height, arity, 
 println!("Root: {:?}", digests[0..1][0]);
 ```
 
-Similar to Poseidon Hash, you can also configure the Tree Builder `TreeBuilderConfig::default()`
+Similar to Poseidon, you can also configure the Tree Builder `TreeBuilderConfig::default()`
 
 - `keep_rows`: The number of rows which will be written to output, 0 will write all rows.
 - `are_inputs_on_device`: Have the inputs been loaded to device memory ?
@@ -215,7 +210,7 @@ Similar to Poseidon Hash, you can also configure the Tree Builder `TreeBuilderCo
 
 ### Benchmarks 
 
-We ran the Poseidon hash tree builder on:
+We ran the Poseidon tree builder on: 
 
 **CPU**: 12th Gen Intel(R) Core(TM) i9-12900K/
 
