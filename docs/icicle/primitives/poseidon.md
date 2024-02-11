@@ -20,7 +20,7 @@ This is done to prevent collisions and to prevent certain cryptographic attacks 
 
 ### Applying full and partial rounds
 
-To generate a secure hash output the algorithm goes through a series of "full round" and "partial rounds" as well as transformations between these sets of rounds.
+To generate a secure hash output, the algorithm goes through a series of "full rounds" and "partial rounds" as well as transformations between these sets of rounds.
 
 First full rounds => apply SBox and Round constants => partial rounds => Last full rounds => Apply SBox
 
