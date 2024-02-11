@@ -41,7 +41,7 @@ First full rounds => apply SBox and Round constants => partial rounds => Last fu
 **Linear Transformation and Round Constants:** A linear transformation is performed and round constants are added. The linear transformation in partial rounds can be designed to be less computationally intensive (this is done by using a sparse matrix) than in full rounds, further optimizing the function's efficiency.
 
 
-The user of a Poseidon hash often can choose how many partial or full rounds he wishes to apply, more full rounds will increase security and degrade performance. The choice and balance depend highly on the use case.
+The user of a Poseidon hash can often choose how many partial or full rounds he wishes to apply; more full rounds will increase security but degrade performance. The choice and balance is highly dependent on the use case.
 
 ![Alt text](image-2.png)
 
