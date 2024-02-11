@@ -14,13 +14,13 @@ Let understand how Poseidon works.
 
 Poseidon starts with the initialization of its internal state, which is composed of the input elements and some pregenerated constants. An initial round constant is added to each element of the internal state. Adding The round constants ensure the state is properly mixed from the outset.
 
-This is done to prevent collions and to prevent certain cryptographic attacks by insuring that the internal state is sufficiently mixed and unpredictable,
+This is done to prevent collisions and to prevent certain cryptographic attacks by ensuring that the internal state is sufficiently mixed and unpredictable.
 
 ![Alt text](image.png)
 
 ### Applying full and partial rounds
 
-To generate a secure hash output the algorithm goes through a series of "full round" and "partial rounds" as well as transformations between these sets of rounds.
+To generate a secure hash output, the algorithm goes through a series of "full rounds" and "partial rounds" as well as transformations between these sets of rounds.
 
 First full rounds => apply SBox and Round constants => partial rounds => Last full rounds => Apply SBox
 
@@ -38,10 +38,10 @@ First full rounds => apply SBox and Round constants => partial rounds => Last fu
 
 **Selective Application of S-Box:** Partial rounds apply the S-box transformation to only one element of the internal state per round, rather than to all elements. This selective application significantly reduces the computational complexity of the hash function without compromising its security. The choice of which element to apply the S-box to can follow a specific pattern or be fixed, depending on the design of the hash function.
 
-**Linear Transformation and Round Constants:** A linear transformation is performed, and round constants are added. However, the linear transformation in partial rounds can be designed to be less computationally intensive (this is done by using a sparse matrix) than in full rounds, further optimizing the function's efficiency.
+**Linear Transformation and Round Constants:** A linear transformation is performed and round constants are added. The linear transformation in partial rounds can be designed to be less computationally intensive (this is done by using a sparse matrix) than in full rounds, further optimizing the function's efficiency.
 
 
-The user of Poseidon often can choose how many partial or full rounds he wishes to apply, more full rounds will increase security and degrade performance. The choice and balance depend highly on the use case.
+The user of Poseidon can often choose how many partial or full rounds he wishes to apply; more full rounds will increase security but degrade performance. The choice and balance is highly dependent on the use case.
 
 ![Alt text](image-2.png)
 
@@ -50,7 +50,7 @@ The user of Poseidon often can choose how many partial or full rounds he wishes 
 ICICLE Poseidon is implemented for GPU and parallelization is performed for each element of the state rather than for each state.
 What that means is we calculate multiple hash-sums over multiple pre-images in parallel, rather than going block by block over the input vector.
 
-So for Poseidon of arity 2 and input of size 1024 * 2, we would expect 1024 elements of output. Which means each block would be of size 2 and that would result in 1024 Poseidon hashes being preformed.
+So for Poseidon of arity 2 and input of size 1024 * 2, we would expect 1024 elements of output. Which means each block would be of size 2 and that would result in 1024 Poseidon hashes being performed.
 
 ### Supported API
 
@@ -64,9 +64,9 @@ Poseidon supports the following curves:
 
 ### Constants
 
-Poseidon is extremely customizable using different constants will producing different hashes, different security levels and different performance results.
+Poseidon is extremely customizable and using different constants will produce different hashes, security levels and performance results.
 
-We support pre calculated and optimized constants for each of the [supported curves](#supported-curves).The constants can be found [here](https://github.com/ingonyama-zk/icicle/tree/main/icicle/appUtils/poseidon/constants), the are labeled clearly per curve `<curve_name>_poseidon.h`.
+We support pre-calculated and optimized constants for each of the [supported curves](#supported-curves).The constants can be found [here](https://github.com/ingonyama-zk/icicle/tree/main/icicle/appUtils/poseidon/constants) and are labeled clearly per curve `<curve_name>_poseidon.h`.
 
 If you wish to generate your own constants you can use our python script which can be found [here](https://github.com/ingonyama-zk/icicle/blob/b6dded89cdef18348a5d4e2748b71ce4211c63ad/icicle/appUtils/poseidon/constants/generate_parameters.py#L1).
 
