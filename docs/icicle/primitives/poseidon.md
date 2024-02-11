@@ -6,7 +6,7 @@ Poseidon hash function has also been specifically designed to be efficient when 
 
 Poseidon hash has been used in many popular ZK protocols such as Filecoin and [Plonk](https://drive.google.com/file/d/1bZZvKMQHaZGA4L9eZhupQLyGINkkFG_b/view?usp=drive_open).
 
-Our implementation of [Poseidon hash](https://eprint.iacr.org/2019/458.pdf) is implemented  in accordance with the optimized [Filecoin version](https://spec.filecoin.io/algorithms/crypto/poseidon/).
+Our implementation of [Poseidon hash](https://eprint.iacr.org/2019/458.pdf) is implemented in accordance with the optimized [Filecoin version](https://spec.filecoin.io/algorithms/crypto/poseidon/).
 
 Let understand how Poseidon hash works.
 
