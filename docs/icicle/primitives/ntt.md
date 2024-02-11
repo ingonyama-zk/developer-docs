@@ -29,4 +29,11 @@ NTT supports the following curves:
 
 ## Supported algorithms
 
-Our NTT implementation supports two algorithms `` and ``.
+Our NTT implementation supports two algorithms `radix-2` and `mixed-radix`.
+
+### Mixed Radix
+
+
+### Radix 2
+
+
