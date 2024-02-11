@@ -64,9 +64,9 @@ Poseidon supports the following curves:
 
 ### Constants
 
-Poseidon is extremely customizable using different constants will producing different hashes, different security levels and different performance results.
+Poseidon is extremely customizable and using different constants will produce different hashes, security levels and performance results.
 
-We support pre calculated and optimized constants for each of the [supported curves](#supported-curves).The constants can be found [here](https://github.com/ingonyama-zk/icicle/tree/main/icicle/appUtils/poseidon/constants), the are labeled clearly per curve `<curve_name>_poseidon.h`.
+We support pre-calculated and optimized constants for each of the [supported curves](#supported-curves).The constants can be found [here](https://github.com/ingonyama-zk/icicle/tree/main/icicle/appUtils/poseidon/constants) and are labeled clearly per curve `<curve_name>_poseidon.h`.
 
 If you wish to generate your own constants you can use our python script which can be found [here](https://github.com/ingonyama-zk/icicle/blob/b6dded89cdef18348a5d4e2748b71ce4211c63ad/icicle/appUtils/poseidon/constants/generate_parameters.py#L1).
 
