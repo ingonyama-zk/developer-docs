@@ -50,7 +50,7 @@ The user of a Poseidon hash often can choose how many partial or full rounds he 
 ICICLE Poseidon hash is implemented for GPU and parallelization is performed for each element of the state rather than for each state.
 What that means is we calculate multiple hash-sums over multiple pre-images in parallel, rather than going block by block over the input vector.
 
-So for Poseidon of arity 2 and input of size 1024 * 2, we would expect 1024 elements of output. Which means each block would be of size 2 and that would result in 1024 Poseidon hashes being preformed.
+So for Poseidon of arity 2 and input of size 1024 * 2, we would expect 1024 elements of output. Which means each block would be of size 2 and that would result in 1024 Poseidon hashes being performed.
 
 ### Supported API
 
