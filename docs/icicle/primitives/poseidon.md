@@ -8,7 +8,7 @@ Poseidon hash has been used in many popular ZK protocols such as Filecoin and [P
 
 Our implementation of [Poseidon hash](https://eprint.iacr.org/2019/458.pdf) is implemented in accordance with the optimized [Filecoin version](https://spec.filecoin.io/algorithms/crypto/poseidon/).
 
-Let understand how Poseidon hash works.
+Let's understand how Poseidon hash works.
 
 ### Initialization
 
