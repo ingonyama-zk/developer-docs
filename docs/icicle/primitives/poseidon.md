@@ -206,8 +206,6 @@ Similar to Poseidon, you can also configure the Tree Builder `TreeBuilderConfig:
 - `are_inputs_on_device`: Have the inputs been loaded to device memory ?
 - `is_async`: Should the TreeBuilder run asynchronously? `False` will block the current CPU thread. `True` will require you call `cudaStreamSynchronize` or `cudaDeviceSynchronize` to retrieve the result.
 
-### Memory considerations
-
 ### Benchmarks 
 
 We ran the Poseidon tree builder on: 

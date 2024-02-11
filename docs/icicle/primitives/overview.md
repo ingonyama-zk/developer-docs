@@ -7,3 +7,4 @@ This section of the documentation is dedicated to the ICICLE primitives, we will
 
 
 - [MSM](./msm)
+- [Poseidon Hash](./poseidon.md)
