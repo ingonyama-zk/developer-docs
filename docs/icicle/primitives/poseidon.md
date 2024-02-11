@@ -14,7 +14,7 @@ Let's understand how Poseidon hash works.
 
 Poseidon starts with the initialization of its internal state, which is composed of the input elements and some pregenerated constants. An initial round constant is added to each element of the internal state. This is part of the initialization to ensure the state is properly mixed from the outset.
 
-This is done to prevent collions and to prevent certain cryptographic attacks by insuring that the internal state is sufficiently mixed and unpredictable,
+This is done to prevent collisions and to prevent certain cryptographic attacks by ensuring that the internal state is sufficiently mixed and unpredictable.
 
 ![Alt text](image.png)
 
