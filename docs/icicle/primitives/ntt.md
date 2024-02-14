@@ -27,6 +27,98 @@ NTT supports the following curves:
 
 `bls12-377`, `bls12-381`, `bn-254`, `bw6-761`
 
+## Using NTT
+
+```rust
+pub fn ntt<F>(
+    input: &HostOrDeviceSlice<F>,
+    dir: NTTDir,
+    cfg: &NTTConfig<F>,
+    output: &mut HostOrDeviceSlice<F>,
+) -> IcicleResult<()>
+```
+
+`ntt:ntt` expects:
+
+`input` - buffer to read the inputs of the NTT from. <br/>
+`dir` - whether to compute forward of inverse NTT. <br/>
+`cfg` - config used to specify extra arguments of the NTT. <br/>
+`output` - buffer to write the NTT outputs into. Must be of the same  size as input.
+
+The `input` and `output` buffers can be on device or on host. Being on host means that they will be transferred to device during runtime.
+
+### NTT Config
+
+```rust
+pub struct NTTConfig<'a, S> {
+    pub ctx: DeviceContext<'a>,
+    pub coset_gen: S,
+    pub batch_size: i32,
+    pub ordering: Ordering,
+    are_inputs_on_device: bool,    are_outputs_on_device: bool,
+    pub is_async: bool,
+    pub is_force_radix2: bool,
+}
+```
+
+The `NTTConfig` struct is a configuration object used to specify parameters for an NTT instance.
+
+#### Fields
+
+- **`ctx: DeviceContext<'a>`**: Specifies the device context, including the device ID and the stream ID.
+
+- **`coset_gen: S`**: Defines the coset generator used for coset (i)NTTs. By default, this is set to `S::one()`, indicating that no coset is being used.
+
+- **`batch_size: i32`**: Determines the number of NTTs to compute in a single batch. The default value is 1, meaning that operations are performed on individual inputs without batching. Batch processing can significantly improve performance by leveraging parallelism in GPU computations.
+
+- **`ordering: Ordering`**: Controls the ordering of inputs and outputs for the NTT operation. This field can be used to specify decimation strategies (in time or in frequency) and the type of butterfly algorithm (Cooley-Tukey or Gentleman-Sande). The ordering is crucial for compatibility with various algorithmic approaches and can impact the efficiency of the NTT.
+
+- **`are_inputs_on_device: bool`**: Indicates whether the input data has been preloaded on the device memory. If `false` inputs will be copied from host to device.
+
+- **`are_outputs_on_device: bool`**: Indicates whether the output data is preloaded in device memory. If `false` outputs will be copied from host to device.
+
+- **`is_async: bool`**: Specifies whether the NTT operation should be performed asynchronously. When set to `true`, the NTT function will not block the CPU, allowing other operations to proceed concurrently. Asynchronous execution requires careful synchronization to ensure data integrity and correctness.
+
+- **`is_force_radix2: bool`**: Forces the use of the radix-2 NTT algorithm, regardless of the input size or other considerations. By default, the algorithm (radix-2 or mixed-radix) is chosen based on heuristics to optimize performance. This option provides control over the algorithm selection for specialized use cases.
+
+#### Usage
+
+Example initialization with default settings:
+
+```rust
+let default_config = NTTConfig::default_config();
+```
+
+Customizing the configuration:
+
+```rust
+let custom_config = NTTConfig {
+    ctx: custom_device_context,
+    coset_gen: my_coset_generator,
+    batch_size: 10,
+    ordering: Ordering::kRN,
+    are_inputs_on_device: true,
+    are_outputs_on_device: true,
+    is_async: false,
+    is_force_radix2: true,
+};
+```
+
+### Ordering
+
+The `Ordering` enum defines how inputs and outputs are arranged for the NTT operation, offering flexibility in handling data according to different algorithmic needs or compatibility requirements. It primarily affects the sequencing of data points for the transform, which can influence both performance and the compatibility with certain algorithmic approaches. The available ordering options are:
+
+- **`kNN` (Natural-Natural):** Both inputs and outputs are in their natural order. This is the simplest form of ordering, where data is processed in the sequence it is given, without any rearrangement.
+
+- **`kNR` (Natural-Reversed):** Inputs are in natural order, while outputs are in bit-reversed order. This ordering is typically used in algorithms that benefit from having the output in a bit-reversed pattern.
+
+- **`kRN` (Reversed-Natural):** Inputs are in bit-reversed order, and outputs are in natural order. This is often used with the Cooley-Tukey FFT algorithm.
+
+- **`kRR` (Reversed-Reversed):** Both inputs and outputs are in bit-reversed order.
+
+
+Choosing an algorithm is heavily dependent on your use case. For example `Cooley-Tukey` will often use `kRN` and Gentleman-Sande often uses `kNR`.
+
 ## Supported algorithms
 
 Our NTT implementation supports two algorithms `radix-2` and `mixed-radix`.
