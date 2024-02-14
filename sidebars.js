@@ -50,9 +50,14 @@ module.exports = {
             },
             {
               type: "doc",
+              label: "Poseidon Hash",
+              id: "icicle/primitives/poseidon",
+            },
+            {
+              type: "doc",
               label: "NTT",
               id: "icicle/primitives/ntt",
-            },
+            }
           ],
         },
         {
