@@ -117,15 +117,52 @@ The `Ordering` enum defines how inputs and outputs are arranged for the NTT oper
 - **`kRR` (Reversed-Reversed):** Both inputs and outputs are in bit-reversed order.
 
 
-Choosing an algorithm is heavily dependent on your use case. For example `Cooley-Tukey` will often use `kRN` and Gentleman-Sande often uses `kNR`.
+Choosing an algorithm is heavily dependent on your use case. For example Cooley-Tukey will often use `kRN` and Gentleman-Sande often uses `kNR`.
 
 ## Supported algorithms
 
 Our NTT implementation supports two algorithms `radix-2` and `mixed-radix`.
 
+### Radix 2
+
+At its core, the Radix-2 NTT algorithm divides the problem into smaller sub-problems, leveraging the properties of "divide and conquer" to reduce the overall computational complexity. The algorithm operates on sequences whose lengths are powers of two.
+
+1. **Input Preparation:**
+   The input is a sequence of integers $a_0, a_1, \ldots, a_{N-1}, \text{ where } N$ is a power of two.
+
+2. **Recursive Decomposition:**
+   The algorithm recursively divides the input sequence into smaller sequences. At each step, it separates the sequence into even-indexed and odd-indexed elements, forming two subsequences that are then processed independently.
+
+3. **Butterfly Operations:**
+   The core computational element of the Radix-2 NTT is the "butterfly" operation, which combines pairs of elements from the sequences obtained in the decomposition step. 
+   
+   Each butterfly operation involves multiplication by a "twiddle factor," which is a root of unity in the finite field, and addition or subtraction of the results, all performed modulo the prime modulus.
+
+   $$
+    X_k = (A_k + B_k \cdot W^k) \mod p
+   $$
+
+   $X_k$ - The output of the butterfly operation for the $k$-th element
+
+   $A_k$ - an element from the even-indexed subset
+
+   $B_k$ - an element from the odd-indexed subset
+
+   $p$ - prime modulus
+
+   $k$ - The index of the current operation within the butterfly or the transform stage
+
+
+   The twiddle factors are precomputed to save runtime and improve performance.
+
+4. **Bit-Reversal Permutation:**
+   A final step involves rearranging the output sequence into the correct order. Due to the halving process in the decomposition steps, the elements of the transformed sequence are initially in a bit-reversed order. A bit-reversal permutation is applied to obtain the final sequence in natural order.
+
+
 ### Mixed Radix
 
+Mixed Radix is a more generalized approach to NTT. While similar to other algorithms such as Radix 2, Mixed Radix will split the input into parts of different sizes depending on the factors of the input sequence length $N$.
 
-### Radix 2
+Mixed Radix can reduce the number of stages required to compute for large inputs.
 
 
