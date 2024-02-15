@@ -49,7 +49,7 @@ pub fn ntt<F>(
 `ntt:ntt` expects:
 
 `input` - buffer to read the inputs of the NTT from. <br/>
-`dir` - whether to compute forward of inverse NTT. <br/>
+`dir` - whether to compute forward or inverse NTT. <br/>
 `cfg` - config used to specify extra arguments of the NTT. <br/>
 `output` - buffer to write the NTT outputs into. Must be of the same  size as input.
 
@@ -63,9 +63,10 @@ pub struct NTTConfig<'a, S> {
     pub coset_gen: S,
     pub batch_size: i32,
     pub ordering: Ordering,
-    are_inputs_on_device: bool,    are_outputs_on_device: bool,
+    are_inputs_on_device: bool,    
+    are_outputs_on_device: bool,
     pub is_async: bool,
-    pub is_force_radix2: bool,
+    pub ntt_algorithm: NttAlgorithm,
 }
 ```
 
@@ -83,18 +84,21 @@ The `NTTConfig` struct is a configuration object used to specify parameters for 
 
 - **`are_inputs_on_device: bool`**: Indicates whether the input data has been preloaded on the device memory. If `false` inputs will be copied from host to device.
 
-- **`are_outputs_on_device: bool`**: Indicates whether the output data is preloaded in device memory. If `false` outputs will be copied from host to device.
+- **`are_outputs_on_device: bool`**: Indicates whether the output data is preloaded in device memory. If `false` outputs will be copied from host to device. If the inputs and outputs are the same pointer NTT will be computed in place.
 
 - **`is_async: bool`**: Specifies whether the NTT operation should be performed asynchronously. When set to `true`, the NTT function will not block the CPU, allowing other operations to proceed concurrently. Asynchronous execution requires careful synchronization to ensure data integrity and correctness.
 
-- **`is_force_radix2: bool`**: Forces the use of the radix-2 NTT algorithm, regardless of the input size or other considerations. By default, the algorithm (radix-2 or mixed-radix) is chosen based on heuristics to optimize performance. This option provides control over the algorithm selection for specialized use cases.
+- **`ntt_algorithm: NttAlgorithm`**: Can be one of `Auto`, `Radix2`, `MixedRadix`.
+`Auto` will select the implementation selects `Radix 2` or `Mixed Radix` algorithm based on heuristics.
+`Radix2` and `MixedRadix` will force the use of an algorithm regardless of the input size or other considerations. You should use one of these options when you know for sure that you want to 
+
 
 #### Usage
 
 Example initialization with default settings:
 
 ```rust
-let default_config = NTTConfig::default_config();
+let default_config = NTTConfig::default();
 ```
 
 Customizing the configuration:
@@ -108,7 +112,7 @@ let custom_config = NTTConfig {
     are_inputs_on_device: true,
     are_outputs_on_device: true,
     is_async: false,
-    is_force_radix2: true,
+    ntt_algorithm: NttAlgorithm::MixedRadix,
 };
 ```
 
@@ -124,6 +128,9 @@ The `Ordering` enum defines how inputs and outputs are arranged for the NTT oper
 
 - **`kRR` (Reversed-Reversed):** Both inputs and outputs are in bit-reversed order.
 
+- **`kNM` (Natural-Mixed):** Inputs are provided in their natural order, while outputs are arranged in a digit-reversed (mixed) order. This ordering is good for mixed radix NTT operations, where the mixed or digit-reversed ordering of outputs is a generalization of the bit-reversal pattern seen in simpler, radix-2 cases.
+
+- **`kMN` (Mixed-Natural):** Inputs are in a digit-reversed (mixed) order, while outputs are restored to their natural order. This ordering would primarily be used for mixed radix NTT
 
 Choosing an algorithm is heavily dependent on your use case. For example Cooley-Tukey will often use `kRN` and Gentleman-Sande often uses `kNR`.
 
@@ -195,7 +202,9 @@ At its core, the Radix-2 NTT algorithm divides the problem into smaller sub-prob
 
 ### Mixed Radix
 
-The Mixed Radix NTT algorithm extends the concepts of the Radix-2 algorithm by allowing the decomposition of the input sequence based on various factors of its length, not limited to powers of two. This approach offers enhanced flexibility and efficiency, especially for input sizes that are composite numbers, by leveraging the "divide and conquer" strategy across multiple radixes.
+The Mixed Radix NTT algorithm extends the concepts of the Radix-2 algorithm by allowing the decomposition of the input sequence based on various factors of its length. Specifically ICICLEs implementation splits the input into blocks of sizes 16,32,64 compared to radix2 which is always splitting such that we end with NTT of size 2. This approach offers enhanced flexibility and efficiency, especially for input sizes that are composite numbers, by leveraging the "divide and conquer" strategy across multiple radixes.
+
+The NTT blocks in Mixed Radix are implemented more efficiently based on winograd NTT but also optimized memory and register usage is better compared to Radix-2.
 
 Mixed Radix can reduce the number of stages required to compute for large inputs.
 
@@ -203,7 +212,9 @@ Mixed Radix can reduce the number of stages required to compute for large inputs
    The input to the Mixed Radix NTT is a sequence of integers $a_0, a_1, \ldots, a_{N-1}$, where $N$ is not strictly required to be a power of two. Instead, $N$ can be any composite number, ideally factorized into primes or powers of primes.
 
 2. **Factorization and Decomposition:**
-   Unlike the Radix-2 algorithm that strictly divides the problem into halves, Mixed Radix begins with the factorization of $N$ into its prime factors. The algorithm then decomposes the input sequence into sub-sequences based on these factors, applying smaller NTT transforms that correspond to each factor.
+   Unlike the Radix-2 algorithm, which strictly divides the computational problem into halves, the Mixed Radix NTT algorithm implements a flexible decomposition approach which isn't limited to prime factorization. 
+   
+   For example, an NTT of size 256 can be decomposed into two stages of $16 \times \text{NTT}_{16}$, leveraging a composite factorization strategy rather than decomposing into eight stages of $\text{NTT}_{2}$. This exemplifies the use of composite factors (in this case, $256 = 16 \times 16$) to apply smaller NTT transforms, optimizing computational efficiency by adapting the decomposition strategy to the specific structure of $N$.
 
 3. **Butterfly Operations with Multiple Radixes:**
    The Mixed Radix algorithm utilizes butterfly operations for various radix sizes. Each sub-transform involves specific butterfly operations characterized by multiplication with twiddle factors appropriate for the radix in question.
@@ -221,12 +232,12 @@ Mixed Radix can reduce the number of stages required to compute for large inputs
 
 ### When algorithm should I choose ?
 
-Radix 2 is faster for small NTTs. A small NTT would be around logN = 16 and batch size 1. Its also more suited for inputs which are power of 2 (e.g., 256, 512, 1024). Radix 2 wont necessarily preform better for smaller `logn` with larger batches.
+Radix 2 is faster for small NTTs. A small NTT would be around logN = 16 and batch size 1. Its also more suited for inputs which are power of 2 (e.g., 256, 512, 1024). Radix 2 won't necessarily perform better for smaller `logn` with larger batches.
 
 Mixed radix on the other hand better for larger NTTs with larger input sizes which are not necessarily power of 2.
 
 Performance really depends on logn size, batch size, ordering, inverse, coset, coeff-field and which GPU you are using.
 
-For this reason we implemented our [hubristic auto-selection](https://github.com/ingonyama-zk/icicle/blob/774250926c00ffe84548bc7dd97aea5227afed7e/icicle/appUtils/ntt/ntt.cu#L474) which should choose the most efficient algorithm in most cases. 
+For this reason we implemented our [heuristic auto-selection](https://github.com/ingonyama-zk/icicle/blob/774250926c00ffe84548bc7dd97aea5227afed7e/icicle/appUtils/ntt/ntt.cu#L474) which should choose the most efficient algorithm in most cases. 
 
 We still recommend you benchmark for your specific use case if you think a different configuration would yield better results.
