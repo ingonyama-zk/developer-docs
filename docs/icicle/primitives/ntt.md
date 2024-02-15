@@ -89,7 +89,7 @@ The `NTTConfig` struct is a configuration object used to specify parameters for 
 - **`is_async: bool`**: Specifies whether the NTT operation should be performed asynchronously. When set to `true`, the NTT function will not block the CPU, allowing other operations to proceed concurrently. Asynchronous execution requires careful synchronization to ensure data integrity and correctness.
 
 - **`ntt_algorithm: NttAlgorithm`**: Can be one of `Auto`, `Radix2`, `MixedRadix`.
-`Auto` will select the implementation selects `Radix 2` or `Mixed Radix` algorithm based on heuristics.
+`Auto` will select `Radix 2` or `Mixed Radix` algorithm based on heuristics.
 `Radix2` and `MixedRadix` will force the use of an algorithm regardless of the input size or other considerations. You should use one of these options when you know for sure that you want to 
 
 
