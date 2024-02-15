@@ -2,32 +2,40 @@
 
 The Number Theoretic Transform (NTT) is a variant of the Fourier Transform used over finite fields or rings, particularly those of integers modulo a prime number. NTT operates in a discrete domain and is used primarily in applications requiring modular arithmetic, such as cryptography and polynomial multiplication.
 
-NTT is defined similarly to the Discrete Fourier Transform (DFT), but instead of using complex roots of unity, it uses roots of unity within a finite field. The definition hinges on the properties of the finite field, specifically the existence of a primitive root of unity of order \(N\) (where \(N\) is typically a power of 2), and the modulo operation is performed with respect to a specific prime number that supports these roots.
+NTT is defined similarly to the Discrete Fourier Transform (DFT), but instead of using complex roots of unity, it uses roots of unity within a finite field. The definition hinges on the properties of the finite field, specifically the existence of a primitive root of unity of order $N$ (where $N$ is typically a power of 2), and the modulo operation is performed with respect to a specific prime number that supports these roots.
 
-Formally, given a sequence of integers \(a_0, a_1, ..., a_{N-1}\), the NTT of this sequence is another sequence of integers \(A_0, A_1, ..., A_{N-1}\), computed as follows:
+Formally, given a sequence of integers $a_0, a_1, ..., a_{N-1}$, the NTT of this sequence is another sequence of integers $A_0, A_1, ..., A_{N-1}$, computed as follows:
 
-\[ A_k = \sum_{n=0}^{N-1} a_n \cdot \omega^{nk} \mod p \]
+$$
+A_k = \sum_{n=0}^{N-1} a_n \cdot \omega^{nk} \mod p
+$$
 
 where:
-- \(N\) is the size of the input sequence and is a power of 2,
-- \(p\) is a prime number such that \(p = kN + 1\) for some integer \(k\), ensuring that \(p\) supports the existence of \(N\)th roots of unity,
-- \(\omega\) is a primitive \(N\)th root of unity modulo \(p\), meaning \(\omega^N \equiv 1 \mod p\) and no smaller positive power of \(\omega\) is congruent to 1 modulo \(p\),
-- \(k\) ranges from 0 to \(N-1\), and it indexes the output sequence.
+- $N$ is the size of the input sequence and is a power of 2,
+- $p$ is a prime number such that $p = kN + 1$ for some integer $k$, ensuring that $p$ supports the existence of $N$th roots of unity,
+- $\omega$ is a primitive $N$th root of unity modulo $p$, meaning $\omega^N \equiv 1 \mod p$ and no smaller positive power of $\omega$ is congruent to 1 modulo $p$,
+- $k$ ranges from 0 to $N-1$, and it indexes the output sequence.
 
 The NTT is particularly useful because it enables efficient polynomial multiplication under modulo arithmetic, crucial for algorithms in cryptographic protocols, and other areas requiring fast modular arithmetic operations. 
 
 There exists also INTT which is the inverse operation of NTT. INTT can take as input an output sequence of integers from an NTT and reconstruct the original sequence.
 
-
 # Using NTT
 
-## Supported curves
+### Supported curves
 
 NTT supports the following curves:
 
 `bls12-377`, `bls12-381`, `bn-254`, `bw6-761`
 
-## Using NTT
+
+### Examples
+
+- [Rust API examples](https://github.com/ingonyama-zk/icicle/blob/d84ffd2679a4cb8f8d1ac2ad2897bc0b95f4eeeb/examples/rust/ntt/src/main.rs#L1)
+
+- [C++ API examples](https://github.com/ingonyama-zk/icicle/blob/d84ffd2679a4cb8f8d1ac2ad2897bc0b95f4eeeb/examples/c%2B%2B/ntt/example.cu#L1)
+
+## NTT API overview
 
 ```rust
 pub fn ntt<F>(
@@ -118,6 +126,33 @@ The `Ordering` enum defines how inputs and outputs are arranged for the NTT oper
 
 
 Choosing an algorithm is heavily dependent on your use case. For example Cooley-Tukey will often use `kRN` and Gentleman-Sande often uses `kNR`.
+
+### Modes
+
+NTT also supports two different modes `Batch NTT` and `Single NTT`
+
+Batch NTT allows you to run many NTTs with a single API call, Single MSM will launch a single MSM computation.
+
+You may toggle between single and batch NTT by simply configure `batch_size` to be larger then 1 in your `NTTConfig`.
+
+```rust
+let mut cfg = ntt::get_default_ntt_config::<ScalarField>();
+cfg.batch_size = 10 // your ntt using this config will run in batch mode.
+```
+
+`batch_size=1` would keep our NTT in single NTT mode.
+
+Deciding weather to use `batch NTT` vs `single NTT` is highly dependent on your application and use case.
+
+**Single NTT Mode**
+
+- Choose this mode when your application requires processing individual NTT operations in isolation.
+
+**Batch NTT Mode**
+
+- Batch NTT mode can significantly reduce read/write as well as computation overhead by executing multiple NTT operations in parallel.
+
+- Batch mode may also offer better utilization of computational resources (memory and compute).
 
 ## Supported algorithms
 
