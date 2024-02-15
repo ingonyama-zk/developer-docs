@@ -230,7 +230,7 @@ Mixed Radix can reduce the number of stages required to compute for large inputs
 4. **Recombination and Reordering:**
    After applying the appropriate butterfly operations across all decomposition levels, the Mixed Radix algorithm recombines the results into a single output sequence. Due to the varied sizes of the sub-transforms, a more complex reordering process may be required compared to Radix-2. This involves digit-reversal permutations to ensure that the final output sequence is correctly ordered.
 
-### When algorithm should I choose ?
+### Which algorithm should I choose ?
 
 Radix 2 is faster for small NTTs. A small NTT would be around logN = 16 and batch size 1. Its also more suited for inputs which are power of 2 (e.g., 256, 512, 1024). Radix 2 won't necessarily perform better for smaller `logn` with larger batches.
 
