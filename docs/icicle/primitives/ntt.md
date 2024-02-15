@@ -158,7 +158,6 @@ At its core, the Radix-2 NTT algorithm divides the problem into smaller sub-prob
 4. **Bit-Reversal Permutation:**
    A final step involves rearranging the output sequence into the correct order. Due to the halving process in the decomposition steps, the elements of the transformed sequence are initially in a bit-reversed order. A bit-reversal permutation is applied to obtain the final sequence in natural order.
 
-
 ### Mixed Radix
 
 The Mixed Radix NTT algorithm extends the concepts of the Radix-2 algorithm by allowing the decomposition of the input sequence based on various factors of its length, not limited to powers of two. This approach offers enhanced flexibility and efficiency, especially for input sizes that are composite numbers, by leveraging the "divide and conquer" strategy across multiple radixes.
@@ -184,3 +183,15 @@ Mixed Radix can reduce the number of stages required to compute for large inputs
 
 4. **Recombination and Reordering:**
    After applying the appropriate butterfly operations across all decomposition levels, the Mixed Radix algorithm recombines the results into a single output sequence. Due to the varied sizes of the sub-transforms, a more complex reordering process may be required compared to Radix-2. This involves digit-reversal permutations to ensure that the final output sequence is correctly ordered.
+
+### When algorithm should I choose ?
+
+Radix 2 is faster for small NTTs. A small NTT would be around logN = 16 and batch size 1. Its also more suited for inputs which are power of 2 (e.g., 256, 512, 1024). Radix 2 wont necessarily preform better for smaller `logn` with larger batches.
+
+Mixed radix on the other hand better for larger NTTs with larger input sizes which are not necessarily power of 2.
+
+Performance really depends on logn size, batch size, ordering, inverse, coset, coeff-field and which GPU you are using.
+
+For this reason we implemented our [hubristic auto-selection](https://github.com/ingonyama-zk/icicle/blob/774250926c00ffe84548bc7dd97aea5227afed7e/icicle/appUtils/ntt/ntt.cu#L474) which should choose the most efficient algorithm in most cases. 
+
+We still recommend you benchmark for your specific use case if you think a different configuration would yield better results.
