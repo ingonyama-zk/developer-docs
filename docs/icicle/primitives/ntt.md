@@ -161,8 +161,26 @@ At its core, the Radix-2 NTT algorithm divides the problem into smaller sub-prob
 
 ### Mixed Radix
 
-Mixed Radix is a more generalized approach to NTT. While similar to other algorithms such as Radix 2, Mixed Radix will split the input into parts of different sizes depending on the factors of the input sequence length $N$.
+The Mixed Radix NTT algorithm extends the concepts of the Radix-2 algorithm by allowing the decomposition of the input sequence based on various factors of its length, not limited to powers of two. This approach offers enhanced flexibility and efficiency, especially for input sizes that are composite numbers, by leveraging the "divide and conquer" strategy across multiple radixes.
 
 Mixed Radix can reduce the number of stages required to compute for large inputs.
 
+1. **Input Preparation:**
+   The input to the Mixed Radix NTT is a sequence of integers $a_0, a_1, \ldots, a_{N-1}$, where $N$ is not strictly required to be a power of two. Instead, $N$ can be any composite number, ideally factorized into primes or powers of primes.
 
+2. **Factorization and Decomposition:**
+   Unlike the Radix-2 algorithm that strictly divides the problem into halves, Mixed Radix begins with the factorization of $N$ into its prime factors. The algorithm then decomposes the input sequence into sub-sequences based on these factors, applying smaller NTT transforms that correspond to each factor.
+
+3. **Butterfly Operations with Multiple Radixes:**
+   The Mixed Radix algorithm utilizes butterfly operations for various radix sizes. Each sub-transform involves specific butterfly operations characterized by multiplication with twiddle factors appropriate for the radix in question.
+
+   The generalized butterfly operation for a radix-$r$ element can be expressed as:
+
+   $$
+   X_{k,r} = \sum_{j=0}^{r-1} (A_{j,k} \cdot W^{jk}) \mod p
+   $$
+
+   where $X_{k,r}$ is the output of the $radix-r$ butterfly operation for the $k-th$ set of inputs, $A_{j,k}$ represents the $j-th$ input element for the $k-th$ operation, $W$ is the twiddle factor, and $p$ is the prime modulus.
+
+4. **Recombination and Reordering:**
+   After applying the appropriate butterfly operations across all decomposition levels, the Mixed Radix algorithm recombines the results into a single output sequence. Due to the varied sizes of the sub-transforms, a more complex reordering process may be required compared to Radix-2. This involves digit-reversal permutations to ensure that the final output sequence is correctly ordered.
