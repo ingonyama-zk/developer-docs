@@ -43,6 +43,12 @@ To dive deeper and learn about the API checkout the docs for our different ICICL
 - C++ Multi GPU APIs
 
 
+## Best practices 
+
+- Never hardcode device IDs, if you want your software to take advantage of all GPUs on a machine use methods such as `get_device_count` to support arbitrary number of GPUs.
+
+- Launch one thread per GPU, to avoid nasty errors and hard to read code we suggest that for every GPU task you wish to launch you create a dedicated thread. This will make your code way more manageable, easy to read and performant.
+
 ## ZKContainer support for multi GPUs
 
 Multi GPU support should work with ZK-Containers by simple defining which devices the docker container should interact with:
