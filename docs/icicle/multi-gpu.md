@@ -13,7 +13,7 @@ Multi GPU is an approach at developing software to run on multiple GPU devices. 
 
 ## Approaches to Multi GPU programming
 
-There are many [different strategies](https://github.com/NVIDIA/multi-gpu-programming-models) available for implementing multi GPU, whoever they really split into two catagories.
+There are many [different strategies](https://github.com/NVIDIA/multi-gpu-programming-models) available for implementing multi GPU, however, it can be split into two categories.
 
 ### GPU Server approach 
 
@@ -23,19 +23,19 @@ This approach usually involves a single or multiple CPUs opening threads to read
 
 This approach wont let us tackle larger computation sizes but it will allow us to compute multiple computations which we wouldn't be able to load onto a single GPU.
 
-For example lets say that you had to compute two MSM of size 2^20 on a 16GB VRAM GPU you would normally have preform them asynchronously. How ever if you double the number of GPUs in your system you can now run them in parallel. 
+For example lets say that you had to compute two MSMs of size 2^20 on a 16GB VRAM GPU you would normally have to perform them asynchronously. However, if you double the number of GPUs in your system you can now run them in parallel. 
 
 
 ### Inter GPU approach
 
-This approach involves a more sphisticated approch to multi GPU computation. Using technologies such as [GPUDirect, NCCL, NVSHMEM](https://www.nvidia.com/en-us/on-demand/session/gtcspring21-cwes1084/) and NVLink its possible to combine multiple GPUs and split a computation amongst the different devices.
+This approach involves a more sophisticated approach to multi GPU computation. Using technologies such as [GPUDirect, NCCL, NVSHMEM](https://www.nvidia.com/en-us/on-demand/session/gtcspring21-cwes1084/) and NVLink its possible to combine multiple GPUs and split a computation among different devices.
 
-This approach requires redesigning the algorithm at the software level to be compatible with splitting amongst devices. In some cases to lower latency to a minimum special inter GPU connections would be installed on a server to allow GPU direct communication with each other.
+This approach requires redesigning the algorithm at the software level to be compatible with splitting amongst devices. In some cases, to lower latency to a minimum, special inter GPU connections would be installed on a server to allow direct communication between multiple GPUs.
 
 
 # Writing ICICLE Code for Multi GPUs
 
-The approach we have taken for the moment is a GPU Server approach, we assume you have a machine with multiple GPUs and you wish to run some computation on each GPU.
+The approach we have taken for the moment is a GPU Server approach; we assume you have a machine with multiple GPUs and you wish to run some computation on each GPU.
 
 To dive deeper and learn about the API checkout the docs for our different ICICLE API
 
@@ -51,7 +51,7 @@ To dive deeper and learn about the API checkout the docs for our different ICICL
 
 ## ZKContainer support for multi GPUs
 
-Multi GPU support should work with ZK-Containers by simple defining which devices the docker container should interact with:
+Multi GPU support should work with ZK-Containers by simply defining which devices the docker container should interact with:
 
 ```sh
 docker run -it --gpus '"device=0,2"' zk-container-image
