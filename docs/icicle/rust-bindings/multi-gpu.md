@@ -2,6 +2,11 @@
 
 To learn more about the theory of Multi GPU programming refer to [this part](../multi-gpu.md) of documentation.
 
+
+## A Multi GPU example
+
+
+
 ## Device management API
 
 To stream line device management we offer as part of `icicle-cuda-runtime` package methods for dealing with devices.
@@ -148,10 +153,3 @@ let device_id: i32 = 0; // Example device ID
 check_device(device_id);
 // Ensures that the current context is correctly set for the specified device ID.
 ```
-
-
-## A Multi GPU example
-
-todo
-
-
