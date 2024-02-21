@@ -1,0 +1,58 @@
+# Multi GPU with ICICLE
+
+:::info
+
+If you are looking for the Multi GPU API documentation refer here for [Rust](./rust-bindings/multi-gpu.md).
+
+:::
+
+One of the givens with ZK compute can be the large input sizes, its not rare to se today circuits exceeding 2^25 MSM, such input sizes push even high end GPUs to their limits. To scale and run such large circuits we will need to combine multiple GPUs.
+
+Multi GPU is an approach at developing software to run on multiple GPU devices. There are many ways to approach writing such software. This documentation will cover how you can develop with ICICLE for multiple GPUs.
+
+
+## Approaches to Multi GPU programming
+
+There are many [different strategies](https://github.com/NVIDIA/multi-gpu-programming-models) available for implementing multi GPU, whoever they really split into two catagories.
+
+### GPU Server approach 
+
+This approach usually involves a single or multiple CPUs opening threads to read / write from multiple GPUs. You can think about it as a scaled up HOST - Device model.
+
+![alt text](image.png)
+
+This approach wont let us tackle larger computation sizes but it will allow us to compute multiple computations which we wouldn't be able to load onto a single GPU.
+
+For example lets say that you had to compute two MSM of size 2^20 on a 16GB VRAM GPU you would normally have preform them asynchronously. How ever if you double the number of GPUs in your system you can now run them in parallel. 
+
+
+### Inter GPU approach
+
+This approach involves a more sphisticated approch to multi GPU computation. Using technologies such as [GPUDirect, NCCL, NVSHMEM](https://www.nvidia.com/en-us/on-demand/session/gtcspring21-cwes1084/) and NVLink its possible to combine multiple GPUs and split a computation amongst the different devices.
+
+This approach requires redesigning the algorithm at the software level to be compatible with splitting amongst devices. In some cases to lower latency to a minimum special inter GPU connections would be installed on a server to allow GPU direct communication with each other.
+
+
+# Writing ICICLE Code for Multi GPUs
+
+The approach we have taken for the moment is a GPU Server approach, we assume you have a machine with multiple GPUs and you wish to run some computation on each GPU.
+
+To dive deeper and learn about the API checkout the docs for our different ICICLE API
+
+- [Rust Multi GPU APIs](./rust-bindings/multi-gpu.md)
+- C++ Multi GPU APIs
+
+
+## ZKContainer support for multi GPUs
+
+Multi GPU support should work with ZK-Containers by simple defining which devices the docker container should interact with:
+
+```sh
+docker run -it --gpus '"device=0,2"' zk-container-image
+```
+
+If you wish to expose all GPUs 
+
+```sh
+docker run --gpus all zk-container-image
+```
