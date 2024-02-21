@@ -150,3 +150,8 @@ check_device(device_id);
 ```
 
 
+## A Multi GPU example
+
+todo
+
+
