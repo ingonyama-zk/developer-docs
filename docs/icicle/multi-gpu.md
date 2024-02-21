@@ -51,7 +51,7 @@ To dive deeper and learn about the API checkout the docs for our different ICICL
 
 ## ZKContainer support for multi GPUs
 
-Multi GPU support should work with ZK-Containers by simple defining which devices the docker container should interact with:
+Multi GPU support should work with ZK-Containers by simply defining which devices the docker container should interact with:
 
 ```sh
 docker run -it --gpus '"device=0,2"' zk-container-image
