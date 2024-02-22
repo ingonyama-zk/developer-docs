@@ -6,7 +6,7 @@ Here we will cover the core multi GPU apis and a [example](#a-multi-gpu-example)
 
 ## Device management API
 
-To stream line device management we offer as part of `icicle-cuda-runtime` package methods for dealing with devices.
+To streamline device management we offer as part of `icicle-cuda-runtime` package methods for dealing with devices.
 
 #### [`set_device`](https://github.com/vhnatyk/icicle/blob/275eaa99040ab06b088154d64cfa50b25fbad2df/wrappers/rust/icicle-cuda-runtime/src/device.rs#L6)
 
