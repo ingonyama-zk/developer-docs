@@ -6,9 +6,9 @@ If you are looking for the Multi GPU API documentation refer here for [Rust](./r
 
 :::
 
-One of the givens with ZK compute can be the large input sizes, its not rare to se today circuits exceeding 2^25 MSM, such input sizes push even high end GPUs to their limits. To scale and run such large circuits we will need to combine multiple GPUs.
+One common challenge with Zero-Knowledge computation is often managing the large input sizes. It's not uncommon to encounter circuits surpassing 2^25 constraints, such large inputs push the capabilities of even advanced GPUs to their limits. To effectively scale and process such large circuits, leveraging multiple GPUs in tandem becomes a necessity.
 
-Multi GPU is an approach at developing software to run on multiple GPU devices. There are many ways to approach writing such software. This documentation will cover how you can develop with ICICLE for multiple GPUs.
+Multi-GPU programming involves developing software to operate across multiple GPU devices. Lets first explore different approaches to Multi-GPU programming  then we will cover how ICICLE allows you to easily develop youR ZK computations to run across many GPUs.
 
 
 ## Approaches to Multi GPU programming
